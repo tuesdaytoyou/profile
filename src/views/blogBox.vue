@@ -47,16 +47,16 @@ export default defineComponent({
         description:
           "在喜马拉雅实习期间，通过体验指标，进行体验走查项目，发掘体验问题，为产品体验改进提供方向。",
         keys: ["企业实习", "体验走查"],
-        img: 'blog_img1.png',
-        url: 'https://ludicrous-harmony-bcc.notion.site/MR-Design-System-e9861a5358f4461d9d53e1d175a00525'
+        img: 'blog_img2.png',
+        url: 'https://ludicrous-harmony-bcc.notion.site/80b92b7a3d924fd599315a53339a261c'
       },
       {
         title: "企业C端产品交互设计规范制定",
         description:
           "喜马拉雅实习期间，曾负责制定“异常场景设计规范”、“模态控件使用规范”。",
         keys: ["企业实习", "设计规范"],
-        img: 'blog_img1.png',
-        url: 'https://ludicrous-harmony-bcc.notion.site/MR-Design-System-e9861a5358f4461d9d53e1d175a00525'
+        img: 'blog_img3.png',
+        url: 'https://ludicrous-harmony-bcc.notion.site/C-024f6fd380ea4621b384788591404257'
       }
     ];
     const getAssetsFile = url => {
