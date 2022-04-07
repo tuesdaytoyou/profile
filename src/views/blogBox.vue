@@ -9,7 +9,7 @@
       <ul class="blog_card_list">
         <li v-for="(item, index) in blogCardList">
           <div class="blog_card_left">
-            <img :src="getAssetsFile(item.img)" />
+            <img :src="getImgUrl(item.img)" />
           </div>
           <div class="blog_card_right" @click="jumpTo(item.url)">
             <div class="left">
@@ -28,11 +28,13 @@
   </div>
 </template>
 <script>
-import { defineComponent, onMounted, reactive, ref } from "vue";
+import { defineComponent, getCurrentInstance } from "vue";
 
 export default defineComponent({
   name: "blog",
   setup() {
+    const internalInstance = getCurrentInstance()
+    const $utils = internalInstance.appContext.config.globalProperties.$utils
     const blogCardList = [
       {
         title: "MR Design System",
@@ -59,15 +61,18 @@ export default defineComponent({
         url: 'https://ludicrous-harmony-bcc.notion.site/C-024f6fd380ea4621b384788591404257'
       }
     ];
-    const getAssetsFile = url => {
-      return new URL(`../assets/images/${url}`, import.meta.url).href;
-    };
+    // const getImgUrl = url => {
+    //   return new URL(`../assets/images/${url}`, import.meta.url).href;
+    // };
+    const getImgUrl = (url) => {
+      return $utils.getImgUrl(url)
+    }
     const jumpTo = url => {
       window.open(url)
     };
     return {
       blogCardList,
-      getAssetsFile,
+      getImgUrl,
       jumpTo
     };
   }
