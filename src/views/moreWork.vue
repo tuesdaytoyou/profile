@@ -71,7 +71,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box" style="width:380px;height:380px;background:#212122;">
-                <a-image :src="getAssetsFile('ai_gif1.gif')" />
+                <a-image :src="getImgUrl('more_img1.gif')" />
               </div>
               <div class="mask"></div>
               <p>动效设计</p>
@@ -80,7 +80,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box" style="width:380px;height:380px;background:#212122;">
-                <a-image :src="getAssetsFile('ai_gif2.gif')" />
+                <a-image :src="getImgUrl('more_img2.gif')" />
               </div>
               <div class="mask" @click="visible = true"></div>
               <p>动效设计</p>
@@ -89,7 +89,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box" style="width:380px;height:380px;background:#212122;">
-                <a-image :src="getAssetsFile('ai_gif3.gif')" />
+                <a-image :src="getImgUrl('more_img3.gif')" />
               </div>
               <div class="mask"></div>
               <p>动效设计</p>
@@ -98,7 +98,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getAssetsFile('more_img4.png')" />
+                <a-image :src="getImgUrl('more_img4.png')" />
               </div>
               <!-- <img src="../assets/images/more_img4.png" /> -->
               <div class="mask"></div>
@@ -108,7 +108,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getAssetsFile('more_img5.png')" />
+                <a-image :src="getImgUrl('more_img5.png')" />
               </div>
               <!-- <img src="../assets/images/more_img5.png" /> -->
               <div class="mask"></div>
@@ -118,7 +118,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getAssetsFile('more_img6.png')" />
+                <a-image :src="getImgUrl('more_img6.png')" />
               </div>
               <!-- <img src="../assets/images/more_img6.png" /> -->
               <div class="mask"></div>
@@ -128,7 +128,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getAssetsFile('more_img7.png')" />
+                <a-image :src="getImgUrl('more_img7.png')" />
               </div>
               <!-- <img src="../assets/images/more_img7.png" /> -->
               <div class="mask"></div>
@@ -138,7 +138,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getAssetsFile('more_img8.png')" />
+                <a-image :src="getImgUrl('more_img8.png')" />
               </div>
               <!-- <img src="../assets/images/more_img8.png" /> -->
               <div class="mask"></div>
@@ -148,7 +148,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box" style="margin-top:-250px">
-                <a-image :src="getAssetsFile('more_img9.png')" />
+                <a-image :src="getImgUrl('more_img9.png')" />
               </div>
               <!-- <img style="margin-top:-250px" src="../assets/images/more_img9.png" /> -->
               <div class="mask"></div>
@@ -158,7 +158,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getAssetsFile('more_img10.png')" />
+                <a-image :src="getImgUrl('more_img10.png')" />
               </div>
               <!-- <img src="../assets/images/more_img10.png" /> -->
               <div class="mask"></div>
@@ -168,7 +168,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box" style="width:380px;height:535px;margin-top:-300px">
-                <a-image :src="getAssetsFile('more_img11.png')" />
+                <a-image :src="getImgUrl('more_img11.png')" />
               </div>
               <!-- <img style="width:380px;height:535px;margin-top:-300px" src="../assets/images/more_img11.png" /> -->
               <div class="mask"></div>
@@ -178,7 +178,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getAssetsFile('more_img12.png')" />
+                <a-image :src="getImgUrl('more_img12.png')" />
               </div>
               <!-- <img src="../assets/images/more_img12.png" /> -->
               <div class="mask"></div>
@@ -188,7 +188,7 @@
           <li style="margin-top:-300px">
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getAssetsFile('more_img13.png')" />
+                <a-image :src="getImgUrl('more_img13.png')" />
               </div>
               <!-- <img src="../assets/images/more_img13.png" /> -->
               <div class="mask"></div>
@@ -198,7 +198,7 @@
           <li style="margin-top:-300px;margin-left: 480px;">
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getAssetsFile('more_img14.png')" />
+                <a-image :src="getImgUrl('more_img14.png')" />
               </div>
               <!-- <img src="../assets/images/more_img14.png" /> -->
               <div class="mask"></div>
@@ -208,7 +208,7 @@
           <li style="clear:both;">
             <div style="position: relative;">
             <div class="img_box">
-                <a-image :src="getAssetsFile('more_img15.png')" />
+                <a-image :src="getImgUrl('more_img15.png')" />
               </div>
               <!-- <img src="../assets/images/more_img15.png" /> -->
               <div class="mask"></div>
@@ -221,96 +221,30 @@
   </div>
 </template>
 <script>
-import { defineComponent, onMounted, reactive, ref } from "vue";
+import { defineComponent, getCurrentInstance } from "vue";
 import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "home",
   setup() {
     const router = useRouter()
+    const internalInstance = getCurrentInstance()
+    const $utils = internalInstance.appContext.config.globalProperties.$utils
     const jumpTo = (name) => {
       if(name === 'hok') {
-        window.open('https://tuesdaytoyou.github.io/docs/HOK.pdf')
+        const url = $utils.getImgUrl('HOK.pdf')
+        window.open(url)
         return
       }
       router.push({name})
     }
-    const getAssetsFile = (url) => {
-      return new URL(`../assets/images/${url}`, import.meta.url).href
+    const getImgUrl = (url) => {
+      return $utils.getImgUrl(url)
     }
     return {
       jumpTo,
-      getAssetsFile,
+      getImgUrl,
     };
   },
 });
 </script>
-<style scoped>
-.more_box {
-  position: relative;
-  width: 100%;
-  margin: auto;
-  margin-top: 35px;
-  height: 4550px;
-  filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.1));
-}
-.images_list_box {
-  display: flex;
-  justify-content: center;
-  max-width: 1980px;
-  margin: 0 auto 0 auto;
-  height: 550px;
-}
-.images_list {
-  width: 1340px;
-}
-.images_list li{
-  float: left;
-  margin-left: 50px;
-  margin-bottom: 50px;
-  transition:0.5s ease;
-}
-.images_list li:hover{
-  transform:scale(1.1);
-}
-.images_list li:hover p{
-  display: block;
-}
-.images_list li:hover .mask{
-  display: block;
-}
-.images_list li p{
-  position: absolute;
-  left: 5%;
-  bottom: 5%;
-  font-family: 'PingFang SC';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 103.97%;
-  display: none;
-  color: #FFFFFF;;
-}
-.more_menu_box{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-  margin-top: 40px;
-}
-.more_menu_box ul{
-  width: 1244px;
-}
-.more_menu_box ul li{
-  display: inline-block;
-  margin-right: 41px;
-  font-family: 'PingFang SC';
-  font-style: normal;
-  font-weight: 900;
-  font-size: 16px;
-  line-height: 160%;
-  color: rgba(255, 255, 255, 0.8);
-}
-.images_list .mask{width: 100%;height: 100%;position: absolute;background: rgba(0, 0, 0, 0.3);top: 0;display: none;cursor: pointer;pointer-events: none;}
-.images_list .img_box{cursor: pointer;}
-</style>

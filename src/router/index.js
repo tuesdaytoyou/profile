@@ -37,11 +37,6 @@ const routes = [
     name: 'solarterm',
     component: () => import('@/views/solarterm.vue')
   },
-  {
-    path: '/ant',
-    name: 'ant',
-    component: () => import('@/views/ant.vue')
-  },
 ]
 
 const router = createRouter({
@@ -49,15 +44,7 @@ const router = createRouter({
   routes,
 })
 
-const colorList = {
-  home: 'white',
-  ximalayaMusic: 'black',
-  ximalayaAi: 'blue',
-  amazon: 'white',
-  gameLive: 'black',
-  planetarium: 'black',
-  solarterm: 'black',
-}
+const colorList = store.state.colorList
 router.beforeEach((to,from)=>{
   store.commit("setMenuColor", colorList[to.name]);
   store.commit("setSelectMenu", to.name);

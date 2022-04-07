@@ -5,7 +5,7 @@
     <port-folio></port-folio>
     <blog-box></blog-box>
     <more-work></more-work>
-    <!-- <nav-box :navList="navList" :navName="navName"></nav-box> -->
+    <nav-box :navList="navList" :navName="navName"></nav-box>
   </div>
 </template>
 
@@ -18,11 +18,13 @@ import moreWork from './moreWork.vue'
 import navBox from './navigationBox.vue'
 import { defineComponent, onMounted, reactive, onUnmounted } from "vue";
 import BlogBox from "./blogBox.vue";
+import useMenuChange from "../hooks/useMenuChange"
 
 export default defineComponent({
   name: "home",
   components: { homePage, aboutMe, portFolio, moreWork, navBox, BlogBox },
   setup() {
+    useMenuChange()
     const navList = reactive([
       {title:'About me',cur: false,anchor:'home_title1'},
       {title:'Portfolio',cur: false,anchor:'home_title2'},

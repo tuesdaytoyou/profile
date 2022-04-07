@@ -7,10 +7,12 @@ import store from './store/index'
 import Antd from "ant-design-vue";
 import "ant-design-vue/dist/antd.css";
 import '@/assets/css/index.css'
+import utils from './utils';
 
 
 const app = createApp(App)
 
+app.config.globalProperties.$utils = utils
 
 app.use(store).use(router).use(Antd).mount('#app')
 

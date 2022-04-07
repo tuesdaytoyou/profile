@@ -69,26 +69,3 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped>
-.nav_box {
-  position: fixed;
-  top: 50%;
-  right: 45px;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.nav_list li{
-  height: 60px;
-  width: 90px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-.nav_list .cur {
-  background: rgba(209, 209, 209, 1);
-}
-.nav_top {height: 60px;width: 90px;background: url(@/assets/images/nav_top.png) no-repeat;cursor: pointer;}
-.nav_bottom {height: 60px;width: 90px;background: url(@/assets/images/nav_bottom.png) no-repeat;cursor: pointer;}
-</style>

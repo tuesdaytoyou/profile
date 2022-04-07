@@ -69,34 +69,36 @@
         </div>
         <img src="../assets/images/game_img11.png" />
         <div class="game_select">
-          <div class="img" @click="changePreview('img', 1)">图文</div>
-          <div class="video" @click="changePreview('video', 1)">视频</div>
+          <div class="img" :class="{cur:previewImg1}" @click="changePreview('img', 1)">图文</div>
+          <div class="video" :class="{cur:previewVideo1}" @click="changePreview('video', 1)">视频</div>
         </div>
         <div class="video_perview" v-show="previewVideo1">
           <img src="../assets/images/video_preview_bg1.png" />
           <img src="../assets/images/video_preview_bg2.png" />
-          <video></video>
+          <div style="border_radius:5px">
+            <video controls style="margin-top:7px;width:778px;z-index:100" :src="getImgUrl('preview_video1.mp4')"></video>
+          </div>
         </div>
         <img v-show="previewImg1" src="../assets/images/game_img12.png" />
         <div class="game_select">
-          <div class="img" @click="changePreview('img', 2)">图文</div>
-          <div class="video" @click="changePreview('video', 2)">视频</div>
+          <div class="img" :class="{cur:previewImg2}" @click="changePreview('img', 2)">图文</div>
+          <div class="video" :class="{cur:previewVideo2}" @click="changePreview('video', 2)">视频</div>
         </div>
         <div class="video_perview" v-show="previewVideo2">
           <img src="../assets/images/video_preview_bg1.png" />
           <img src="../assets/images/video_preview_bg2.png" />
-          <video></video>
+          <video controls style="margin-top:7px;width:778px;z-index:100" :src="getImgUrl('preview_video2.mp4')"></video>
         </div>
         <img v-show="previewImg2" src="../assets/images/game_img13.png" />
         <img v-show="previewImg2" src="../assets/images/game_img14.png" />
         <div class="game_select">
-          <div class="img" @click="changePreview('img', 3)">图文</div>
-          <div class="video" @click="changePreview('video', 3)">视频</div>
+          <div class="img" :class="{cur:previewImg3}" @click="changePreview('img', 3)">图文</div>
+          <div class="video" :class="{cur:previewVideo3}" @click="changePreview('video', 3)">视频</div>
         </div>
         <div class="video_perview" v-show="previewVideo3">
           <img src="../assets/images/video_preview_bg1.png" />
           <img src="../assets/images/video_preview_bg2.png" />
-          <video></video>
+          <video controls style="margin-top:7px;width:778px;z-index:100" :src="getImgUrl('preview_video3.mp4')"></video>
         </div>
         <img v-show="previewImg3" src="../assets/images/game_img15.png" />
         <div class="title">
@@ -137,14 +139,18 @@
   </div>
 </template>
 <script>
-import { defineComponent, ref, reactive, onUnmounted } from "vue";
+import { defineComponent, ref, reactive, getCurrentInstance } from "vue";
 import { useRouter } from "vue-router";
 import navBox from './navigationBox.vue'
+import useMenuChange from "../hooks/useMenuChange"
 
 export default defineComponent({
   name: "home",
   components: {navBox},
   setup() {
+    useMenuChange()
+    const internalInstance = getCurrentInstance()
+    const $utils = internalInstance.appContext.config.globalProperties.$utils
     const router = useRouter()
     const navList = reactive([
       {title:'背景介绍',cur: false,anchor:'game_title1'},
@@ -222,6 +228,9 @@ export default defineComponent({
     const handleNext = () => {
       router.push({name: 'amazon'})
     }
+    const getImgUrl = (url) => {
+      return $utils.getImgUrl(url)
+    }
     return {
       navList,
       navName,
@@ -235,113 +244,8 @@ export default defineComponent({
       changePreview,
       handlePre,
       handleNext,
+      getImgUrl,
     };
   },
 });
 </script>
-<style>
-.game_img_list {display: flex;justify-content: center;align-items: center;}
-.game_img_list div{display: flex;justify-content: center;align-items: center;flex-direction: column;}
-.game_img_list .title{margin: 79px 0 52px 0;}
-.game_img_list .title {flex-direction: row!important;}
-.game_img_list .title div{width: 600px;}
-.game_img_list .title div p:nth-child(1){
-    font-family: 'PingFang SC';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 45px;
-    line-height: 160%;
-    color: #7152E1;
-}
-.game_img_list .title div p:nth-child(2){
-    width: 96px;
-    height: 5px;
-    background: #7455E2;
-}
-.game_img_list .bg_title {width: 1244px;height: 118px;background-color: #7152E1;border-radius: 15px;}
-.game_img_list .bg_title div p:nth-child(1) {
-  font-family: 'PingFang SC';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 180%;
-  color: #FFFFFF;
-}
-.game_img_list .bg_title div p:nth-child(2) {
-  font-family: 'ABeeZee';
-  font-style: normal;
-  font-weight: 200;
-  font-size: 20px;
-  line-height: 160%;
-  color: #FFFFFF;
-}
-.game_select{
-  flex-direction: row!important;margin-top: 26px;
-  font-family: 'PingFang SC';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 180%;
-  color: #FFFFFF;
-}
-.game_select div{cursor: pointer;}
-.game_select .img{width: 100px;height: 60px;background-color: #7152E1;border-radius: 15px;margin-right: 36px;}
-.game_select .video{width: 100px;height: 60px;background-color: rgba(113, 82, 225, 0.2);border-radius: 15px;}
-.game_page1 {width:1920px;height: 1079px;background: url(@/assets/images/game_page1_bg.png) no-repeat;position: relative;margin: auto;}
-.game_page1_left{position: absolute;top: 400px;left: 152px;}
-.game_page1_middle{position: absolute;top: 405px;left: 535px;}
-.game_page1_right{position: absolute;top: -10px;right: 0;}
-.game_page1_middle p{margin: 37px 0;}
-.game_page1_middle p:nth-child(1) {
-  font-family: 'ABeeZee';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 64px;
-  line-height: 160%;
-  color: rgba(0, 0, 0, 0.9);
-}
-.game_page1_middle p:nth-child(2) {
-  font-family: 'PingFang SC';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 160%;
-  color: rgba(0, 0, 0, 0.9);
-}
-.game_page1_middle p:nth-child(3) {
-  width: 500px;
-  font-family: 'ABeeZee';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 160%;
-  color: rgba(0, 0, 0, 0.9);
-}
-.game_page1_middle p:nth-child(4) {
-  width: 342px;
-  height: 5px;
-  left: 185px;
-  background: rgba(113, 82, 225, 1);
-}
-.game_page1_middle p:nth-child(5) {
-  font-family: 'ABeeZee';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 160%;
-  color: rgba(0, 0, 0, 0.9);
-}
-.game_foot{width: 1920px;height: 248px;margin:auto;background-color: #6648D5;;display: flex;justify-content: center;align-items: center;}
-.game_foot p {
-  width: 1425px;
-  font-family: 'ABeeZee';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 160%;
-  color: #ffffff;
-}
-.video_perview{position: relative;height: 750px;}
-.video_perview img:nth-child(1){position: absolute;}
-.video_perview img:nth-child(2){position: absolute;}
-</style>

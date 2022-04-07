@@ -18,10 +18,10 @@
     </div>
     <div class="ai_img_list" style="margin-top:100px">
       <div class="list_box">
-        <img class="scroll_box" src="../assets/images/ai_img1.png" />
-        <img class="scroll_box" src="../assets/images/ai_img2.png" />
-        <img class="scroll_box" src="../assets/images/ai_img3.png" />
-        <img class="scroll_box" src="../assets/images/ai_img4.png" />
+        <img src="../assets/images/ai_img1.png" />
+        <img src="../assets/images/ai_img2.png" />
+        <img src="../assets/images/ai_img3.png" />
+        <img src="../assets/images/ai_img4.png" />
         <div class="img4_icons">
           <img src="../assets/images/ai_gif1.gif" />
           <img src="../assets/images/ai_gif2.gif" />
@@ -37,7 +37,7 @@
           <div class="ai_desgin_contain">
             <div class="icons">
               <div v-for="(icon, index) in iconList">
-                <img style="cursor: pointer;" @click="changSlide(index+1)" :src="getSlideIcon(index+1)" />
+                <img style="cursor: pointer;" :style="{width:index === showSlide ? '90px' : '70px',height:index === showSlide ? '90px' : '70px'}" @click="changSlide(index+1)" :src="getSlideIcon(index+1)" />
                 <p :style="{fontSize:index === showSlide ? '14px' : ''}">{{icon.title}}</p>
               </div>
             </div>
@@ -73,7 +73,7 @@
           </div>
         </div>
         <img class="" src="../assets/images/ai_img5.png" />
-        <img class="scroll_box" style="margin-top: 40px;" src="../assets/images/ai_img6.png" />
+        <img style="margin-top: 40px;" src="../assets/images/ai_img6.png" />
         <div class=" ai_gifs">
           <img src="../assets/images/ai_gif1.gif" />
           <img src="../assets/images/ai_gif2.gif" />
@@ -111,18 +111,15 @@
 import { defineComponent, onMounted, reactive, ref, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 import navBox from './navigationBox.vue'
-import { Swiper, SwiperSlide } from 'swiper/vue';
-
-import 'swiper/css';
+import useMenuChange from "../hooks/useMenuChange"
 
 export default defineComponent({
   name: "home",
   components: {
     navBox,
-    Swiper,
-    SwiperSlide,
   },
   setup() {
+    useMenuChange()
     const router = useRouter()
     const navList = reactive([
       {title:'项目背景',cur: false,anchor:'ai_title1'},
@@ -205,120 +202,3 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped>
-.ai_img_list {display: flex;justify-content: center;align-items: center;}
-.ai_img_list div{display: flex;justify-content: center;align-items: center;flex-direction: column;}
-.ai_page1 {width:1920px;height: 1079px;background: url(@/assets/images/ai_page1_bg.png) no-repeat;position: relative;margin: auto;}
-.ai_gifs {width:1350px;display: flex;justify-content: center;align-items: center;flex-direction: row!important;margin: 53px 0 60px 0;}
-.ai_gifs img{height: 153px;width:153px;margin: 0 59px;}
-.ai_foot{width: 1920px;height: 248px;margin:auto;background-color: #D9E9FF;display: flex;justify-content: center;align-items: center;}
-.ai_foot p {
-  width: 1425px;
-  font-family: 'ABeeZee';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 160%;
-  color: #000000;
-}
-.img4_icons {position: absolute;width: 1920px;margin-top: -1250px;justify-content: center;align-items: center;flex-direction: row!important;}
-.img4_icons img{height: 153px;width:153px;margin: 0 38px;}
-.ai_desgin .title {
-  font-family: 'PingFang SC';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 45px;
-  line-height: 160%;
-  color: #FFFFFF;
-}
-.ai_desgin .underline{
-  width: 96px;
-  height: 5px;
-  background: #DB3434;
-  margin-bottom: 51px;
-}
-.ai_desgin_contain {width:1269px;height:885px;background: url(../assets/images/ai_design_img2.png) no-repeat;background-size: cover;}
-.ai_desgin_contain .icons {display: flex;justify-content: center;margin-top: -750px;flex-direction: row!important;}
-.ai_desgin_contain .icons {
-  font-family: 'PingFang SC';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 160%;
-  color: #FFFFFF;
-}
-.ai_desgin_contain .icons img {width: 90px;height: 90px; margin: 0 17.5px;}
-.ai_desgin .swiper_contain{position: absolute;display: flex;justify-content: center;margin-top: 700px;flex-direction: row!important;}
-.ai_desgin .box{position: absolute;display: flex;justify-content: center;flex-direction: row!important;}
-.ai_desgin .box img {width: 332px;height: 332px;}
-.ai_desgin .box .text {width: 800px;height: 332px;display: flex;justify-content: center;align-items: flex-start;}
-.ai_desgin .box .text p:nth-child(1) {
-  font-family: 'PingFang SC';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 160%;
-  color: #FFFFFF;
-  margin-bottom: 44px;
-}
-.ai_desgin .box .text p:nth-child(2) {
-  font-family: 'PingFang SC';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 160%;
-  color: #FFFFFF;
-}
-.ai_desgin .ai_card{width:1269px;position: absolute;margin: 1400px auto 0  auto;display: block;padding-left: 40px;}
-.ai_desgin .ai_card div{width: 332px;height: 140px;margin: 0 32px 28px;background: url(../assets/images/ai_card_g.png) no-repeat;float: left;position: relative;}
-.ai_desgin .ai_card div:hover {background: url(../assets/images/ai_card_h.png) no-repeat;}
-.ai_desgin .ai_card div:hover img:last-child{display: block;}
-.ai_desgin .ai_card div img:last-child {position: absolute;right: 19px;top: 53px;display: none;}
-.ai_page1_left{position: absolute;top: 325px;left: 118px;}
-.ai_page1_left p{margin: 37px 0;}
-.ai_page1_left p:nth-child(1) {
-  font-family: 'ABeeZee';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 64px;
-  line-height: 160%;
-  color: rgba(0, 0, 0, 0.9);
-}
-.ai_page1_left p:nth-child(2) {
-  font-family: 'PingFang SC';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 160%;
-  color: rgba(0, 0, 0, 0.9);
-}
-.ai_page1_left p:nth-child(3) {
-  width: 500px;
-  font-family: 'ABeeZee';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 160%;
-  color: rgba(0, 0, 0, 0.9);
-}
-.ai_page1_left p:nth-child(4) {
-  width: 342px;
-  height: 5px;
-  left: 185px;
-  background: #DB3434;
-}
-.ai_page1_left p:nth-child(5) {
-  font-family: 'ABeeZee';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 160%;
-  color: rgba(0, 0, 0, 0.9);
-}
-.ai_page1_right img{position: absolute;}
-.ai_page1_right img:nth-child(1) {top: 401px;right: 0;}
-.ai_page1_right img:nth-child(2) {top: 236px;right: 140px;}
-.ai_page1_right img:nth-child(3) {top: 286px;right: 190px;}
-.ai_page1_right img:nth-child(4) {top: 495px;right: 636px;}
-.ai_page1_right img:nth-child(5) {top: 542px;right: 715px;width: 224px;height: 224px;}
-</style>

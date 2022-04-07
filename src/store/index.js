@@ -6,7 +6,16 @@ const store = createStore({
     return {
       menuDlg: false,
       menuColor: 'white',
-      selectMenu: 'home'
+      selectMenu: 'home',
+      colorList: {
+        home: 'white',
+        ximalayaMusic: 'black',
+        ximalayaAi: 'blue',
+        amazon: 'white',
+        gameLive: 'black',
+        planetarium: 'black',
+        solarterm: 'black',
+      }
     }
   },
   mutations: {

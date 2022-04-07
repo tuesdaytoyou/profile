@@ -47,11 +47,13 @@
 import { defineComponent, onMounted, reactive, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 import navBox from './navigationBox.vue'
+import useMenuChange from "../hooks/useMenuChange";
 
 export default defineComponent({
   name: "home",
   components: {navBox},
   setup() {
+    useMenuChange()
     const router = useRouter()
     const navList = reactive([
       {title:'项目介绍',cur: false,anchor:'music_title1'},
@@ -90,60 +92,3 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped>
-.music_img_list {display: flex;justify-content: center;align-items: center;}
-.music_img_list div{display: flex;justify-content: center;align-items: center;flex-direction: column;}
-.music_foot{width: 1920px;height: 248px;margin:auto;background-color: #FF5A83;;display: flex;justify-content: center;align-items: center;}
-.music_foot p {
-  width: 1425px;
-  font-family: 'ABeeZee';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 160%;
-  color: #ffffff;
-}
-.music_page1 {width:1920px;height: 1079px;background: url(@/assets/images/music_page1_bg.png) no-repeat;position: relative;margin: auto;}
-.music_page1_left{position: absolute;top: 325px;left: 118px;}
-.music_page1_left p{margin: 37px 0;}
-.music_page1_left p:nth-child(1) {
-  font-family: 'ABeeZee';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 64px;
-  line-height: 160%;
-  color: rgba(0, 0, 0, 0.9);
-}
-.music_page1_left p:nth-child(2) {
-  font-family: 'PingFang SC';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 160%;
-  color: rgba(0, 0, 0, 0.9);
-}
-.music_page1_left p:nth-child(3) {
-  width: 500px;
-  font-family: 'ABeeZee';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 160%;
-  color: rgba(0, 0, 0, 0.9);
-}
-.music_page1_left p:nth-child(4) {
-  width: 342px;
-  height: 5px;
-  left: 185px;
-  background: #DB3434;
-}
-.music_page1_left p:nth-child(5) {
-  font-family: 'ABeeZee';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 160%;
-  color: rgba(0, 0, 0, 0.9);
-}
-.music_page1_right{position: absolute;left: 654px;}
-</style>
