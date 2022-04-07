@@ -29,19 +29,19 @@ export default defineConfig({
         optimizationLevel: 7,
       },
       mozjpeg: {
-        quality: 50,
+        quality: 8,
       },
       pngquant: {
         quality: [0.8, 0.9],
         speed: 4,
       },
       svgo: {
-        plugins: [{
-            name: 'removeViewBox',
+        plugins: [
+          {
+            removeViewBox: false,
           },
           {
-            name: 'removeEmptyAttrs',
-            active: false,
+            removeEmptyAttrs: false,
           },
         ],
       },
@@ -61,5 +61,6 @@ export default defineConfig({
         assetFileNames: '[ext]/[name]-[hash].[ext]',
       },
     },
+    chunkSizeWarningLimit: 500
   }
 })
