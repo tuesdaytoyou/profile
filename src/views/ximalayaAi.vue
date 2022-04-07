@@ -13,7 +13,7 @@
         <img src="../assets/images/ai_page1_imac.png" />
         <img style="width: 295px;height: 280px;" src="../assets/images/ai_page_cube.gif" />
         <img src="../assets/images/ai_page1_mac.png" />
-        <img src="../assets/images/ai_gif5.gif" />
+        <img src="../assets/images/ai_gif1.gif" />
       </div>
     </div>
     <div class="ai_img_list" style="margin-top:100px">
@@ -36,8 +36,9 @@
           <img style="width: 508px;height: 479px;position: absolute;top: 100px;right: 35px;" src="../assets/images/ai_page_cube.gif" />
           <div class="ai_desgin_contain">
             <div class="icons">
-              <div v-for="item in 8">
-                <img style="cursor: pointer;" @click="changSlide(item)" :src="getSlideIcon(item)" />
+              <div v-for="(icon, index) in iconList">
+                <img style="cursor: pointer;" @click="changSlide(index+1)" :src="getSlideIcon(index+1)" />
+                <p :style="{fontSize:index === showSlide ? '14px' : ''}">{{icon.title}}</p>
               </div>
             </div>
           </div>
@@ -91,23 +92,23 @@
       <p>该项目目前正在开发。从0搭建过程中，我根据用户体验五要素从五个层次指定设计目标。此外，通过了解网页设计流行趋势，和另外一名设计师合作完成全部的UI工作。</p>
     </div>
     <div class="back_foot">
-      <div class="back_left">
-        <em @click="handlePre()"></em>
-        <p>返回主页</p>
+      <div @click="handlePre()" class="back_left">
+        <em></em>
+        <p>上一篇：喜韵音坊</p>
       </div>
-      <div class="back_right">
-        <p>下一篇：喜马AI云网站</p>
-        <em @click="handleNext()"></em>
+      <div @click="handleNext()" class="back_right">
+        <p>下一篇：游戏直播互动体验</p>
+        <em></em>
       </div>
     </div>
-    <nav-box :navList="navList" @nav-change="handleNav"></nav-box>
+    <nav-box :navList="navList" :navName="navName"></nav-box>
     <div class="anchor">
       <p v-for="(item, index) in anchor_tops" :style="{top:item.top+'px'}" class="ai_title" :id="'ai_title'+(index+1)"></p>
     </div>
   </div>
 </template>
 <script>
-import { defineComponent, onMounted, reactive, ref } from "vue";
+import { defineComponent, onMounted, reactive, ref, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 import navBox from './navigationBox.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -133,47 +134,32 @@ export default defineComponent({
       {title:'功能体验',cur: false,anchor:'ai_title7'},
       {title:'动效设计',cur: false,anchor:'ai_title8'},
     ])
+    const anchor_tops = [
+      {top:1070},
+      {top:2135},
+      {top:2650},
+      {top:3525},
+      {top:6140},
+      {top:7680},
+      {top:11420},
+      {top:12500},
+    ]
+    const navName = 'ai_title'
+    const iconList = [
+      {title:'语音合成'},
+      {title:'语音识别'},
+      {title:'有声内容创作'},
+      {title:'音频信号处理'},
+      {title:'语音分析'},
+      {title:'声纹技术'},
+      {title:'图像与虚拟人'},
+      {title:'智能硬件'},
+    ]
     const handlePre = () => {
-      router.push({name: 'home'})
+      router.push({name: 'ximalayaMusic'})
     }
     const handleNext = () => {
       router.push({name: 'gameLive'})
-    }
-    const listenScroll = () => {
-      document.addEventListener('scroll', navMenu)
-    }
-    const unlistenScroll = () => {
-      document.removeEventListener('scroll', navMenu)
-    }
-    const navMenu = () => {
-      const imgList = document.querySelectorAll('.ai_title')
-      imgList.forEach((imgitem, index) => {
-        navList[index].cur = false
-        if(index === imgList.length - 1){
-          if(imgitem.getBoundingClientRect().top <= 0){
-              navList[index].cur = true
-          }
-        }else {
-          if(imgitem.getBoundingClientRect().top <= 0 && imgList[index+1].getBoundingClientRect().top > 0){
-              navList[index].cur = true
-          }
-        }
-      })
-    }
-    onMounted(listenScroll)
-    const handleNav = async(type, index) => {
-      switch(type) {
-        case 'top': 
-          window.scrollTo(0, 0)
-          break
-        case 'center': 
-          const id = navList[index].anchor
-          document.getElementById(id).scrollIntoView();
-          break
-        case 'bottom':
-          window.scrollTo(0, document.documentElement.scrollHeight - window.innerHeight)
-          break
-      }
     }
     const getAssetsFile = (url) => {
         return new URL(`../assets/images/${url}`, import.meta.url).href
@@ -203,25 +189,16 @@ export default defineComponent({
     const changSlide = (item) => {
       showSlide.value = item - 1
     }
-    const anchor_tops = [
-      {top:970},
-      {top:2035},
-      {top:2550},
-      {top:3425},
-      {top:6040},
-      {top:7580},
-      {top:11320},
-      {top:12400},
-    ]
     return {
       navList,
+      navName,
       anchor_tops,
       slideList,
       showSlide,
+      iconList,
       changSlide,
       handlePre,
       handleNext,
-      handleNav,
       getAssetsFile,
       getSlideIcon,
     };
@@ -262,11 +239,19 @@ export default defineComponent({
 }
 .ai_desgin_contain {width:1269px;height:885px;background: url(../assets/images/ai_design_img2.png) no-repeat;background-size: cover;}
 .ai_desgin_contain .icons {display: flex;justify-content: center;margin-top: -750px;flex-direction: row!important;}
+.ai_desgin_contain .icons {
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 160%;
+  color: #FFFFFF;
+}
 .ai_desgin_contain .icons img {width: 90px;height: 90px; margin: 0 17.5px;}
 .ai_desgin .swiper_contain{position: absolute;display: flex;justify-content: center;margin-top: 700px;flex-direction: row!important;}
 .ai_desgin .box{position: absolute;display: flex;justify-content: center;flex-direction: row!important;}
 .ai_desgin .box img {width: 332px;height: 332px;}
-.ai_desgin .box .text {width: 800px;height: 332px;}
+.ai_desgin .box .text {width: 800px;height: 332px;display: flex;justify-content: center;align-items: flex-start;}
 .ai_desgin .box .text p:nth-child(1) {
   font-family: 'PingFang SC';
   font-style: normal;
@@ -274,6 +259,7 @@ export default defineComponent({
   font-size: 32px;
   line-height: 160%;
   color: #FFFFFF;
+  margin-bottom: 44px;
 }
 .ai_desgin .box .text p:nth-child(2) {
   font-family: 'PingFang SC';
@@ -283,7 +269,7 @@ export default defineComponent({
   line-height: 160%;
   color: #FFFFFF;
 }
-.ai_desgin .ai_card{width:1269px;position: absolute;margin: 1400px auto 0  auto;display: block;padding-left: 20px;}
+.ai_desgin .ai_card{width:1269px;position: absolute;margin: 1400px auto 0  auto;display: block;padding-left: 40px;}
 .ai_desgin .ai_card div{width: 332px;height: 140px;margin: 0 32px 28px;background: url(../assets/images/ai_card_g.png) no-repeat;float: left;position: relative;}
 .ai_desgin .ai_card div:hover {background: url(../assets/images/ai_card_h.png) no-repeat;}
 .ai_desgin .ai_card div:hover img:last-child{display: block;}

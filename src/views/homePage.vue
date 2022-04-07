@@ -13,6 +13,13 @@
           <span class="contact_text">Contact me</span>
         </div>
       </div>
+      <div class="mouse_slide"> 
+        <div class="top"></div>
+        <div class="bottom">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -88,5 +95,16 @@
   line-height: 100%;
   text-align: center;
   color: #ffffff;
+}
+.mouse_slide {position: absolute;display: flex;justify-content: center;align-items: center;flex-direction: column;bottom: 10px;}
+.mouse_slide .top{height:15px;width:88px;background: url('@/assets/images/mouse_text.png') no-repeat;}
+.mouse_slide .bottom{position: relative;}
+.mouse_slide .bottom div:nth-child(1){width: 32px;height: 55px;background: url('@/assets/images/mouse_rect.png') no-repeat;}
+.mouse_slide .bottom div:nth-child(2){width: 6px;height: 6px;background: url('@/assets/images/mouse_dot.png') no-repeat;position: absolute;top: 9px;left: 13px;animation: mymove 1.5s infinite;}
+@keyframes mymove{
+  100% {
+    top: 25px;
+    opacity: 0.2;
+  }
 }
 </style>

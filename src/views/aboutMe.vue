@@ -1,9 +1,9 @@
 <template>
-  <div class="box">
-    <div class="head">
-      <div class="resume">RESUME</div>
-      <div class="about_me">ABOUT ME</div>
-      <div class="head_underline"></div>
+  <div id="home_title1" class="box home_title">
+    <div class="home_title_head">
+      <div>RESUME</div>
+      <div>ABOUT ME</div>
+      <div style="background:rgba(0, 87, 255, 1)"></div>
     </div>
     <div class="box_contain">
       <div class="avatar">
@@ -158,40 +158,6 @@
   margin: 100px auto 0 auto;
   height: 550px;
 }
-.box .head{display: flex;justify-content: center;align-items: center;flex-direction: column;}
-.resume {
-  position: relative;
-  width: 143px;
-  height: 41px;
-  margin: auto;
-  font-family: "Archivo Black";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 160%;
-  opacity: 0.5;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 1);
-}
-.about_me {
-  position: relative;
-  width: 243px;
-  height: 56px;
-  margin: auto;
-  font-family: "Archivo Black";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 45px;
-  line-height: 160%;
-  color: #ffffff;
-}
-.head_underline {
-  position: relative;
-  width: 100px;
-  height: 5px;
-  margin: 10px auto;
-  background: #0057ff;
-}
 .avatar {
   position: relative;
   width: 400px;
@@ -260,6 +226,7 @@
   color: #ffffff;
 }
 .eduction_ul {
+  position: relative;
   margin-top: 20px;
   background-color: #222224;
   width: 585px;
@@ -295,7 +262,8 @@
   color: rgba(255, 255, 255, 0.8);
 }
 .eduction_ul .first p:nth-child(4) {
-  margin-left: 165px;
+  position: absolute;
+  right: 20px;
   font-family: 'ABeeZee';
   font-style: normal;
   font-weight: 400;
@@ -345,7 +313,8 @@
   color: rgba(255, 255, 255, 0.8);
 }
 .eduction_ul .third p:nth-child(4) {
-  margin-left: 5px;
+  position: absolute;
+  right: 20px;
   font-family: 'ABeeZee';
   font-style: normal;
   font-weight: 400;

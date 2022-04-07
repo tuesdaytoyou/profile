@@ -53,7 +53,7 @@
             </div>
         </div>
         <img src="../assets/images/game_img8.png" />
-        <img src="../assets/images/game_img9.png" />
+        <img style="margin-top:127px" src="../assets/images/game_img9.png" />
         <div class="title">
             <div>
                 <p>设计落地</p>
@@ -69,21 +69,36 @@
         </div>
         <img src="../assets/images/game_img11.png" />
         <div class="game_select">
-          <div class="img">图文</div>
-          <div class="video">视频</div>
+          <div class="img" @click="changePreview('img', 1)">图文</div>
+          <div class="video" @click="changePreview('video', 1)">视频</div>
         </div>
-        <img src="../assets/images/game_img12.png" />
+        <div class="video_perview" v-show="previewVideo1">
+          <img src="../assets/images/video_preview_bg1.png" />
+          <img src="../assets/images/video_preview_bg2.png" />
+          <video></video>
+        </div>
+        <img v-show="previewImg1" src="../assets/images/game_img12.png" />
         <div class="game_select">
-          <div class="img">图文</div>
-          <div class="video">视频</div>
+          <div class="img" @click="changePreview('img', 2)">图文</div>
+          <div class="video" @click="changePreview('video', 2)">视频</div>
         </div>
-        <img src="../assets/images/game_img13.png" />
-        <img src="../assets/images/game_img14.png" />
+        <div class="video_perview" v-show="previewVideo2">
+          <img src="../assets/images/video_preview_bg1.png" />
+          <img src="../assets/images/video_preview_bg2.png" />
+          <video></video>
+        </div>
+        <img v-show="previewImg2" src="../assets/images/game_img13.png" />
+        <img v-show="previewImg2" src="../assets/images/game_img14.png" />
         <div class="game_select">
-          <div class="img">图文</div>
-          <div class="video">视频</div>
+          <div class="img" @click="changePreview('img', 3)">图文</div>
+          <div class="video" @click="changePreview('video', 3)">视频</div>
         </div>
-        <img src="../assets/images/game_img15.png" />
+        <div class="video_perview" v-show="previewVideo3">
+          <img src="../assets/images/video_preview_bg1.png" />
+          <img src="../assets/images/video_preview_bg2.png" />
+          <video></video>
+        </div>
+        <img v-show="previewImg3" src="../assets/images/game_img15.png" />
         <div class="title">
             <div>
                 <p>战后反馈</p>
@@ -106,23 +121,23 @@
       <p>本作品为课程合作项目，我在其中全程参与用户研究工作、并负责互动、捣蛋的交互设计与可用性测试。通过对用户需求进行细致挖掘，为设计创新提供灵感与依据。后续阶段通过可用性测试，站在用户视角，提供合理的方案。作品有不成熟之处，但对直播体验新形式的探索与商业化构思，使其具有创新性、可落地性。</p>
     </div>
     <div class="back_foot">
-      <div class="back_left">
-        <em @click="handlePre()"></em>
-        <p>喜马AI云网站</p>
+      <div @click="handlePre()" class="back_left">
+        <em></em>
+        <p>上一篇：喜马云网站</p>
       </div>
-      <div class="back_right">
+      <div @click="handleNext()" class="back_right">
         <p>下一篇：亚马逊NLP</p>
-        <em @click="handleNext()"></em>
+        <em></em>
       </div>
     </div>
-    <nav-box :navList="navList" @nav-change="handleNav"></nav-box>
+    <nav-box :navList="navList" :navName="navName"></nav-box>
     <div class="anchor">
       <p v-for="(item, index) in anchor_tops" :style="{top:item.top+'px'}" class="game_title" :id="'game_title'+(index+1)"></p>
     </div>
   </div>
 </template>
 <script>
-import { defineComponent, onMounted, reactive } from "vue";
+import { defineComponent, ref, reactive, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 import navBox from './navigationBox.vue'
 
@@ -143,66 +158,83 @@ export default defineComponent({
       {title:'应用拓展',cur: false,anchor:'game_title9'},
       {title:'测试与修改',cur: false,anchor:'game_title10'},
     ])
-    const listenScroll = () => {
-      document.addEventListener('scroll', navMenu)
-    }
-    const unlistenScroll = () => {
-      document.removeEventListener('scroll', navMenu)
-    }
-    const navMenu = () => {
-      const imgList = document.querySelectorAll('.game_title')
-      imgList.forEach((imgitem, index) => {
-        navList[index].cur = false
-        if(index === imgList.length - 1){
-          if(imgitem.getBoundingClientRect().top <= 0){
-              navList[index].cur = true
-          }
-        }else {
-          if(imgitem.getBoundingClientRect().top <= 0 && imgList[index+1].getBoundingClientRect().top > 0){
-              navList[index].cur = true
-          }
+    const anchor_tops = [
+      {top:1110},
+      {top:2360},
+      {top:5440},
+      {top:6155},
+      {top:8040},
+      {top:9430},
+      {top:11410},
+      {top:12635},
+      {top:14140},
+      {top:16620},
+    ]
+    const navName = 'game_title'
+    let previewVideo1 = ref(false), previewVideo2 = ref(false), previewVideo3 = ref(false)
+    let previewImg1 = ref(true), previewImg2 = ref(true), previewImg3 = ref(true)
+    const changePreview = (type, index) => {
+      if(type === 'img') {
+        if(index === 1){
+          clearInterval(previewLoop1)
+          previewVideo1.value = false
+          previewImg1.value = true
+        }else if(index === 2) {
+          clearInterval(previewLoop2)
+          previewVideo2.value = false
+          previewImg2.value = true
+        }else if(index === 3) {
+          clearInterval(previewLoop3)
+          previewVideo3.value = false
+          previewImg3.value = true
         }
-      })
+      }else {
+        if(index === 1){
+          clearInterval(previewLoop1)
+          previewImg1.value = false
+          previewVideo1.value = true
+        }else if(index === 2) {
+          clearInterval(previewLoop2)
+          previewImg2.value = false
+          previewVideo2.value = true
+        }else if(index === 3) {
+          clearInterval(previewLoop3)
+          previewImg3.value = false
+          previewVideo3.value = true
+        }
+      }
     }
-    onMounted(listenScroll)
+    const previewLoop1 = setInterval(() => {
+      previewVideo1.value = !previewVideo1.value
+      previewImg1.value = !previewImg1.value
+    },3000)
+    const previewLoop2 = setInterval(() => {
+      previewVideo2.value = !previewVideo2.value
+      previewImg2.value = !previewImg2.value
+    },3000)
+    const previewLoop3 = setInterval(() => {
+      previewVideo3.value = !previewVideo3.value
+      previewImg3.value = !previewImg3.value
+    },3000)
     const handlePre = () => {
       router.push({name: 'ximalayaAi'})
     }
     const handleNext = () => {
       router.push({name: 'amazon'})
     }
-    const handleNav = async(type, index) => {
-      switch(type) {
-        case 'top': 
-          window.scrollTo(0, 0)
-          break
-        case 'center': 
-          const id = navList[index].anchor
-          document.getElementById(id).scrollIntoView();
-          break
-        case 'bottom':
-          window.scrollTo(0, document.documentElement.scrollHeight - window.innerHeight)
-          break
-      }
-    }
-    const anchor_tops = [
-      {top:1010},
-      {top:2260},
-      {top:5340},
-      {top:6055},
-      {top:7840},
-      {top:9230},
-      {top:11210},
-      {top:12435},
-      {top:13940},
-      {top:16420},
-    ]
     return {
       navList,
+      navName,
       anchor_tops,
+      previewImg1,
+      previewImg2,
+      previewImg3,
+      previewVideo1,
+      previewVideo2,
+      previewVideo3,
+      changePreview,
       handlePre,
       handleNext,
-      handleNav,
     };
   },
 });
@@ -252,6 +284,7 @@ export default defineComponent({
   line-height: 180%;
   color: #FFFFFF;
 }
+.game_select div{cursor: pointer;}
 .game_select .img{width: 100px;height: 60px;background-color: #7152E1;border-radius: 15px;margin-right: 36px;}
 .game_select .video{width: 100px;height: 60px;background-color: rgba(113, 82, 225, 0.2);border-radius: 15px;}
 .game_page1 {width:1920px;height: 1079px;background: url(@/assets/images/game_page1_bg.png) no-repeat;position: relative;margin: auto;}
@@ -288,7 +321,7 @@ export default defineComponent({
   width: 342px;
   height: 5px;
   left: 185px;
-  background: #DB3434;
+  background: rgba(113, 82, 225, 1);
 }
 .game_page1_middle p:nth-child(5) {
   font-family: 'ABeeZee';
@@ -308,4 +341,7 @@ export default defineComponent({
   line-height: 160%;
   color: #ffffff;
 }
+.video_perview{position: relative;height: 750px;}
+.video_perview img:nth-child(1){position: absolute;}
+.video_perview img:nth-child(2){position: absolute;}
 </style>

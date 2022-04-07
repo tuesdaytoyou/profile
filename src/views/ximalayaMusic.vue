@@ -28,23 +28,23 @@
       <p>该项目目前正在开发。从0搭建过程中，我根据用户体验五要素从五个层次指定设计目标。此外，通过了解网页设计流行趋势，和另外一名设计师合作完成全部的UI工作。</p>
     </div>
     <div class="back_foot">
-      <div class="back_left">
-        <em @click="handlePre()"></em>
+      <div @click="handlePre()" class="back_left">
+        <em></em>
         <p>返回主页</p>
       </div>
-      <div class="back_right">
-        <p>下一篇：喜马AI云网站</p>
-        <em @click="handleNext()"></em>
+      <div @click="handleNext()" class="back_right">
+        <p>下一篇：喜马云网站</p>
+        <em></em>
       </div>
     </div>
-    <nav-box :navList="navList" @nav-change="handleNav"></nav-box>
+    <nav-box :navList="navList" :navName="navName"></nav-box>
     <div class="anchor">
       <p v-for="(item, index) in anchor_tops" :style="{top:item.top+'px'}" class="music_title" :id="'music_title'+(index+1)"></p>
     </div>
   </div>
 </template>
 <script>
-import { defineComponent, onMounted, reactive } from "vue";
+import { defineComponent, onMounted, reactive, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 import navBox from './navigationBox.vue'
 
@@ -63,64 +63,29 @@ export default defineComponent({
       {title:'设计规范',cur: false,anchor:'music_title7'},
       {title:'页面展示',cur: false,anchor:'music_title8'},
     ])
-    const listenScroll = () => {
-      document.addEventListener('scroll', navMenu)
-    }
-    const unlistenScroll = () => {
-      document.removeEventListener('scroll', navMenu)
-    }
-    const navMenu = () => {
-      const imgList = document.querySelectorAll('.music_title')
-      imgList.forEach((imgitem, index) => {
-        navList[index].cur = false
-        if(index === imgList.length - 1){
-          if(imgitem.getBoundingClientRect().top <= 0){
-              navList[index].cur = true
-          }
-        }else {
-          if(imgitem.getBoundingClientRect().top <= 0 && imgList[index+1].getBoundingClientRect().top > 0){
-              navList[index].cur = true
-          }
-        }
-      })
-    }
-    onMounted(listenScroll)
+    const anchor_tops = [
+      {top:990},
+      {top:1650},
+      {top:2340},
+      {top:4150},
+      {top:4490},
+      {top:6160},
+      {top:8360},
+      {top:11550},
+    ]
+    const navName = 'music_title'
     const handlePre = () => {
       router.push({name: 'home'})
     }
     const handleNext = () => {
       router.push({name: 'ximalayaAi'})
     }
-    const handleNav = async(type, index) => {
-      switch(type) {
-        case 'top': 
-          window.scrollTo(0, 0)
-          break
-        case 'center': 
-          const id = navList[index].anchor
-          document.getElementById(id).scrollIntoView();
-          break
-        case 'bottom':
-          window.scrollTo(0, document.documentElement.scrollHeight - window.innerHeight)
-          break
-      }
-    }
-    const anchor_tops = [
-      {top:980},
-      {top:1550},
-      {top:2240},
-      {top:4050},
-      {top:4390},
-      {top:6060},
-      {top:8260},
-      {top:11450},
-    ]
     return {
       navList,
+      navName,
       anchor_tops,
       handlePre,
       handleNext,
-      handleNav,
     };
   },
 });

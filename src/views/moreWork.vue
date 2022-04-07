@@ -1,9 +1,9 @@
 <template>
-  <div class="more_box">
-    <div class="more_head">
+  <div id="home_title4" class="more_box home_title">
+    <div class="home_title_head">
       <div>MORE</div>
       <div>MORE WORK</div>
-      <div></div>
+      <div style="background:rgba(0, 87, 255, 1)"></div>
     </div>
     <div class="more_menu_box">
       <ul>
@@ -71,7 +71,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box" style="width:380px;height:380px;background:#212122;">
-                <a-image :src="getAssetsFile('more_img1.gif')" />
+                <a-image :src="getAssetsFile('ai_gif1.gif')" />
               </div>
               <div class="mask"></div>
               <p>动效设计</p>
@@ -80,7 +80,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box" style="width:380px;height:380px;background:#212122;">
-                <a-image :src="getAssetsFile('more_img2.gif')" />
+                <a-image :src="getAssetsFile('ai_gif2.gif')" />
               </div>
               <div class="mask" @click="visible = true"></div>
               <p>动效设计</p>
@@ -89,7 +89,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box" style="width:380px;height:380px;background:#212122;">
-                <a-image :src="getAssetsFile('more_img3.gif')" />
+                <a-image :src="getAssetsFile('ai_gif3.gif')" />
               </div>
               <div class="mask"></div>
               <p>动效设计</p>
@@ -238,9 +238,6 @@ export default defineComponent({
     const getAssetsFile = (url) => {
       return new URL(`../assets/images/${url}`, import.meta.url).href
     }
-    let imgList = [
-      {}
-    ]
     return {
       jumpTo,
       getAssetsFile,
@@ -256,52 +253,6 @@ export default defineComponent({
   margin-top: 35px;
   height: 4550px;
   filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.1));
-}
-.more_head {
-  margin: auto;
-  padding-top: 58px;
-}
-.more_head div:nth-child(1) {
-  position: relative;
-  width: 143px;
-  height: 41px;
-  margin: auto;
-  text-align: center;
-  font-family: "Archivo Black";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 160%;
-  /* or 48px */
-
-  color: #ffffff;
-
-  opacity: 0.5;
-}
-
-.more_head div:nth-child(2) {
-  position: relative;
-  width: 300px;
-  height: 41px;
-  margin: 3px auto;
-  font-family: "Archivo Black";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 45px;
-  line-height: 160%;
-  /* or 72px */
-
-  display: flex;
-  align-items: center;
-
-  color: #ffffff;
-}
-.more_head div:nth-child(3) {
-  position: relative;
-  margin: 10px auto;
-  width: 96px;
-  height: 5px;
-  background: #ffffff;
 }
 .images_list_box {
   display: flex;

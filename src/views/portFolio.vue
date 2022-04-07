@@ -1,6 +1,6 @@
 <template>
-  <div class="port_box">
-    <div class="port_head">
+  <div id="home_title2" class="port_box home_title">
+    <div class="home_title_head">
       <div>Portfolio</div>
       <div>Portfolio</div>
       <div></div>
@@ -113,38 +113,4 @@ export default defineComponent({
   background: rgba(0, 71, 209, 1);
   filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.1));
 }
-.port_head {padding-top: 58px;display: flex;justify-content: center;align-items: center;flex-direction: column;}
-.port_head div:nth-child(1) {
-  position: relative;
-  height: 41px;
-  margin: auto;
-  text-align: center;
-  font-family: "Archivo Black";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 160%;
-  color: #ffffff;
-  opacity: 0.5;
-}
-
-.port_head div:nth-child(2) {
-  position: relative;
-  height: 41px;
-  font-family: "Archivo Black";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 45px;
-
-  color: #ffffff;
-}
-.port_head div:nth-child(3) {
-  position: relative;
-  margin: 20px auto;
-  width: 96px;
-  height: 5px;
-  background: #ffffff;
-}
-
-
 </style>

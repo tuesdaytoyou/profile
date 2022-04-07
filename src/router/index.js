@@ -60,6 +60,7 @@ const colorList = {
 }
 router.beforeEach((to,from)=>{
   store.commit("setMenuColor", colorList[to.name]);
+  store.commit("setSelectMenu", to.name);
 })
 router.afterEach(() => {
   window.scrollTo(0,0);
