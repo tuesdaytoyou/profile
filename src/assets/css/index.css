@@ -766,7 +766,7 @@ img{border:0;}
 }
 .video_perview{position: relative;height: 750px;}
 .video_perview img:nth-child(1){position: absolute;}
-.video_perview img:nth-child(2){position: absolute;}
+.video_perview img:nth-child(2){position: absolute;pointer-events: none;}
 
 .foot_box ul{
   display: flex;

@@ -3,7 +3,7 @@
     <div class="home_contain">
       <div class="hello">
         <img :src="getCloudUrl('hello.png')"/>
-        <p>I am li lu yun, and you can call me </p>
+        <!-- <p>I am li lu yun, and you can call me </p> -->
       </div>
       <div class="home_info">
         <div class="profile_box">
