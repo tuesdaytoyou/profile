@@ -23,7 +23,7 @@
             <img :src="getCloudUrl('more_list1.png')" />
             <div @click="jumpTo('hok')">
               <p></p>
-              <p>需求分析、心智模型简历、用户群体划分、设计心理学分析、问题发掘与建议</p>
+              <p>需求分析、心智模型建立、用户群体划分、设计心理学分析、问题发掘与建议</p>
             </div>
           </div>
           <div class="card_list_bottom">
