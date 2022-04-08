@@ -9,19 +9,19 @@
         <p>喜马拉雅实习项目，负责交互＆UI</p>
       </div>
       <div class="music_page1_right">
-        <img src="../assets/images/music_page1_mac.png" />
+        <img :src="getCloudUrl('music_page1_mac.png')" />
       </div>
     </div>
     <div class="music_img_list">
       <div>
-        <img src="../assets/images/music_img1.png" />
-        <img src="../assets/images/music_img2.png" />
-        <img src="../assets/images/music_img3.png" />
-        <img src="../assets/images/music_img4.png" />
-        <img src="../assets/images/music_img5.png" />
-        <img src="../assets/images/music_img6.png" />
-        <img src="../assets/images/music_img7.png" />
-        <img src="../assets/images/music_img8.png" />
+        <img :src="getCloudUrl('music_img1.png')" />
+        <img :src="getCloudUrl('music_img2.png')" />
+        <img :src="getCloudUrl('music_img3.png')" />
+        <img :src="getCloudUrl('music_img4.png')" />
+        <img :src="getCloudUrl('music_img5.png')" />
+        <img :src="getCloudUrl('music_img6.png')" />
+        <img :src="getCloudUrl('music_img7.png')" />
+        <img :src="getCloudUrl('music_img8.png')" />
       </div>
     </div>
     <div class="music_foot">
@@ -44,17 +44,22 @@
   </div>
 </template>
 <script>
-import { defineComponent, onMounted, reactive, onUnmounted } from "vue";
+import { defineComponent, getCurrentInstance, reactive, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 import navBox from './navigationBox.vue'
 import useMenuChange from "../hooks/useMenuChange";
 
 export default defineComponent({
-  name: "home",
+  name: "ximalayamusic",
   components: {navBox},
   setup() {
     useMenuChange()
     const router = useRouter()
+    const internalInstance = getCurrentInstance()
+    const $utils = internalInstance.appContext.config.globalProperties.$utils
+    const getCloudUrl = (url) => {
+      return $utils.getCloudUrl(url)
+    }
     const navList = reactive([
       {title:'项目介绍',cur: false,anchor:'music_title1'},
       {title:'工作推荐',cur: false,anchor:'music_title2'},
@@ -88,6 +93,7 @@ export default defineComponent({
       anchor_tops,
       handlePre,
       handleNext,
+      getCloudUrl,
     };
   },
 });

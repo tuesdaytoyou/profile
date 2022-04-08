@@ -2,7 +2,7 @@
   <div style="background:#F7F7FC;width:100%;height:100%">
     <div class="game_page1">
         <div class="game_page1_left">
-            <img src="../assets/images/game_page1_left.png" />
+            <img :src="getCloudUrl('game_page1_left.png')" />
         </div>
         <div class="game_page1_middle">
             <p>游戏直播互动体验</p>
@@ -12,7 +12,7 @@
             <p>课程项目，主要负责用户研究，互动玩法部分的方案设计及可用性测试。</p>
         </div>
         <div class="game_page1_right">
-            <img src="../assets/images/game_page1_right.png" />
+            <img :src="getCloudUrl('game_page1_right.png')" />
         </div>
     </div>
     <div class="game_img_list">
@@ -23,18 +23,18 @@
                 <p></p>
             </div>
         </div>
-        <img src="../assets/images/game_img1.png" />
+        <img :src="getCloudUrl('game_img1.png')" />
         <div class="title">
             <div>
                 <p>用户研究</p>
                 <p></p>
             </div>
         </div>
-        <img src="../assets/images/game_img2.png" />
-        <img src="../assets/images/game_img3.png" />
-        <img src="../assets/images/game_img4.png" />
-        <img src="../assets/images/game_img5.png" />
-        <img src="../assets/images/game_img6.png" />
+        <img :src="getCloudUrl('game_img2.png')" />
+        <img :src="getCloudUrl('game_img3.png')" />
+        <img :src="getCloudUrl('game_img4.png')" />
+        <img :src="getCloudUrl('game_img5.png')" />
+        <img :src="getCloudUrl('game_img6.png')" />
         <div class="title">
             <div>
                 <p>设计定位</p>
@@ -45,78 +45,78 @@
                 <p></p>
             </div>
         </div>
-        <img src="../assets/images/game_img7.png" />
+        <img :src="getCloudUrl('game_img7.png')" />
         <div class="title">
             <div>
                 <p>低模与可用性验证</p>
                 <p></p>
             </div>
         </div>
-        <img src="../assets/images/game_img8.png" />
-        <img style="margin-top:127px" src="../assets/images/game_img9.png" />
+        <img :src="getCloudUrl('game_img8.png')" />
+        <img style="margin-top:127px" :src="getCloudUrl('game_img9.png')" />
         <div class="title">
             <div>
                 <p>设计落地</p>
                 <p></p>
             </div>
         </div>
-        <img src="../assets/images/game_img10.png" />
+        <img :src="getCloudUrl('game_img10.png')" />
         <div class="bg_title">
             <div>
                 <p>「互动模式」</p>
                 <p>分为【互玩】与【捣蛋】两种互动模式，由主播设置游戏模式，观众可以根据模式筛选直播</p>
             </div>
         </div>
-        <img src="../assets/images/game_img11.png" />
+        <img :src="getCloudUrl('game_img11.png')" />
         <div class="game_select">
           <div class="img" :class="{cur:previewImg1}" @click="changePreview('img', 1)">图文</div>
           <div class="video" :class="{cur:previewVideo1}" @click="changePreview('video', 1)">视频</div>
         </div>
         <div class="video_perview" v-show="previewVideo1">
-          <img src="../assets/images/video_preview_bg1.png" />
-          <img src="../assets/images/video_preview_bg2.png" />
+          <img :src="getCloudUrl('video_preview_bg1.png')" />
+          <img style="z-index:300" :src="getCloudUrl('video_preview_bg2.png')" />
           <div style="border_radius:5px">
-            <video controls style="margin-top:7px;width:778px;z-index:100" :src="getImgUrl('preview_video1.mp4')"></video>
+            <video controls style="margin-top:7px;width:792px;z-index:100" :src="getCloudUrl('preview_video1.mp4')"></video>
           </div>
         </div>
-        <img v-show="previewImg1" src="../assets/images/game_img12.png" />
+        <img v-show="previewImg1" :src="getCloudUrl('game_img12.png')" />
         <div class="game_select">
           <div class="img" :class="{cur:previewImg2}" @click="changePreview('img', 2)">图文</div>
           <div class="video" :class="{cur:previewVideo2}" @click="changePreview('video', 2)">视频</div>
         </div>
         <div class="video_perview" v-show="previewVideo2">
-          <img src="../assets/images/video_preview_bg1.png" />
-          <img src="../assets/images/video_preview_bg2.png" />
-          <video controls style="margin-top:7px;width:778px;z-index:100" :src="getImgUrl('preview_video2.mp4')"></video>
+          <img :src="getCloudUrl('video_preview_bg1.png')" />
+          <img style="z-index:300" :src="getCloudUrl('video_preview_bg2.png')" />
+          <video controls style="margin-top:7px;width:792px;z-index:100" :src="getCloudUrl('preview_video2.mp4')"></video>
         </div>
-        <img v-show="previewImg2" src="../assets/images/game_img13.png" />
-        <img v-show="previewImg2" src="../assets/images/game_img14.png" />
+        <img v-show="previewImg2" :src="getCloudUrl('game_img13.png')" />
+        <img v-show="previewImg2" :src="getCloudUrl('game_img14.png')" />
         <div class="game_select">
           <div class="img" :class="{cur:previewImg3}" @click="changePreview('img', 3)">图文</div>
           <div class="video" :class="{cur:previewVideo3}" @click="changePreview('video', 3)">视频</div>
         </div>
         <div class="video_perview" v-show="previewVideo3">
-          <img src="../assets/images/video_preview_bg1.png" />
-          <img src="../assets/images/video_preview_bg2.png" />
-          <video controls style="margin-top:7px;width:778px;z-index:100" :src="getImgUrl('preview_video3.mp4')"></video>
+          <img :src="getCloudUrl('video_preview_bg1.png')" />
+          <img style="z-index:300" :src="getCloudUrl('video_preview_bg2.png')" />
+          <video controls style="margin-top:7px;width:792px;z-index:100" :src="getCloudUrl('preview_video3.mp4')"></video>
         </div>
-        <img v-show="previewImg3" src="../assets/images/game_img15.png" />
+        <img v-show="previewImg3" :src="getCloudUrl('game_img15.png')" />
         <div class="title">
             <div>
                 <p>战后反馈</p>
                 <p></p>
             </div>
         </div>
-        <img src="../assets/images/game_img16.png" />
-        <img src="../assets/images/game_img17.png" />
+        <img :src="getCloudUrl('game_img16.png')" />
+        <img :src="getCloudUrl('game_img17.png')" />
         <div class="title">
             <div>
                 <p>测试与修改</p>
                 <p></p>
             </div>
         </div>
-        <img src="../assets/images/game_img18.png" />
-        <img src="../assets/images/game_img19.png" />
+        <img :src="getCloudUrl('game_img18.png')" />
+        <img :src="getCloudUrl('game_img19.png')" />
       </div>
     </div>
     <div class="game_foot">
@@ -228,8 +228,8 @@ export default defineComponent({
     const handleNext = () => {
       router.push({name: 'amazon'})
     }
-    const getImgUrl = (url) => {
-      return $utils.getImgUrl(url)
+    const getCloudUrl = (url) => {
+      return $utils.getCloudUrl(url)
     }
     return {
       navList,
@@ -244,7 +244,7 @@ export default defineComponent({
       changePreview,
       handlePre,
       handleNext,
-      getImgUrl,
+      getCloudUrl,
     };
   },
 });

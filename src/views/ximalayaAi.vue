@@ -9,31 +9,31 @@
         <p>喜马拉雅实习项目，负责交互＆UI</p>
       </div>
       <div class="ai_page1_right">
-        <img src="../assets/images/ai_page1_ellipse.png" />
-        <img src="../assets/images/ai_page1_imac.png" />
-        <img style="width: 295px;height: 280px;" src="../assets/images/ai_page_cube.gif" />
-        <img src="../assets/images/ai_page1_mac.png" />
-        <img src="../assets/images/ai_gif1.gif" />
+        <img :src="getCloudUrl('ai_page1_ellipse.png')" />
+        <img :src="getCloudUrl('ai_page1_imac.png')" />
+        <img style="width: 295px;height: 280px;" :src="getCloudUrl('ai_page_cube.gif')" />
+        <img :src="getCloudUrl('ai_page1_mac.png')" />
+        <img :src="getCloudUrl('ai_gif1.gif')" />
       </div>
     </div>
     <div class="ai_img_list" style="margin-top:100px">
       <div class="list_box">
-        <img src="../assets/images/ai_img1.png" />
-        <img src="../assets/images/ai_img2.png" />
-        <img src="../assets/images/ai_img3.png" />
-        <img src="../assets/images/ai_img4.png" />
+        <img :src="getCloudUrl('ai_img1.png')" />
+        <img :src="getCloudUrl('ai_img2.png')" />
+        <img :src="getCloudUrl('ai_img3.png')" />
+        <img :src="getCloudUrl('ai_img4.png')" />
         <div class="img4_icons">
-          <img src="../assets/images/ai_gif1.gif" />
-          <img src="../assets/images/ai_gif2.gif" />
-          <img src="../assets/images/ai_gif3.gif" />
-          <img src="../assets/images/ai_gif4.gif" />
-          <img src="../assets/images/ai_gif5.gif" />
+          <img :src="getCloudUrl('ai_gif1.gif')" />
+          <img :src="getCloudUrl('ai_gif2.gif')" />
+          <img :src="getCloudUrl('ai_gif3.gif')" />
+          <img :src="getCloudUrl('ai_gif4.gif')" />
+          <img :src="getCloudUrl('ai_gif5.gif')" />
         </div>
         <div class="scroll_box ai_desgin" style="position: relative;">
           <div class="title">设计落地</div>
           <div class="underline"></div>
-          <img src="../assets/images/ai_design_img1.png" />
-          <img style="width: 508px;height: 479px;position: absolute;top: 100px;right: 35px;" src="../assets/images/ai_page_cube.gif" />
+          <img :src="getCloudUrl('ai_design_img1.png')" />
+          <img style="width: 508px;height: 479px;position: absolute;top: 100px;right: 35px;" :src="getCloudUrl('ai_page_cube.gif')" />
           <div class="ai_desgin_contain">
             <div class="icons">
               <div v-for="(icon, index) in iconList">
@@ -55,36 +55,36 @@
           </div>
           <div class="ai_card">
             <div>
-              <img src="../assets/images/ai_desgin_card1.png" />
-              <img src="../assets/images/ai_card_arrow.png" />
+              <img :src="getCloudUrl('ai_desgin_card1.png')" />
+              <img :src="getCloudUrl('ai_card_arrow.png')" />
             </div>
             <div>
-              <img src="../assets/images/ai_desgin_card2.png" />
-              <img src="../assets/images/ai_card_arrow.png" />
+              <img :src="getCloudUrl('ai_desgin_card2.png')" />
+              <img :src="getCloudUrl('ai_card_arrow.png')" />
             </div>
             <div>
-              <img src="../assets/images/ai_desgin_card3.png" />
-              <img src="../assets/images/ai_card_arrow.png" />
+              <img :src="getCloudUrl('ai_desgin_card3.png')" />
+              <img :src="getCloudUrl('ai_card_arrow.png')" />
             </div>
             <div>
-              <img src="../assets/images/ai_desgin_card4.png" />
-              <img src="../assets/images/ai_card_arrow.png" />
+              <img :src="getCloudUrl('ai_desgin_card4.png')" />
+              <img :src="getCloudUrl('ai_card_arrow.png')" />
             </div>
           </div>
         </div>
-        <img class="" src="../assets/images/ai_img5.png" />
-        <img style="margin-top: 40px;" src="../assets/images/ai_img6.png" />
+        <img class="" :src="getCloudUrl('ai_img5.png')" />
+        <img style="margin-top: 40px;" :src="getCloudUrl('ai_img6.png')" />
         <div class=" ai_gifs">
-          <img src="../assets/images/ai_gif1.gif" />
-          <img src="../assets/images/ai_gif2.gif" />
-          <img src="../assets/images/ai_gif3.gif" />
-          <img src="../assets/images/ai_gif4.gif" />
+          <img :src="getCloudUrl('ai_gif1.gif')" />
+          <img :src="getCloudUrl('ai_gif2.gif')" />
+          <img :src="getCloudUrl('ai_gif3.gif')" />
+          <img :src="getCloudUrl('ai_gif4.gif')" />
         </div>
         <div class=" ai_gifs">
-          <img src="../assets/images/ai_gif5.gif" />
-          <img src="../assets/images/ai_gif6.gif" />
-          <img src="../assets/images/ai_gif7.gif" />
-          <img src="../assets/images/ai_gif8.gif" />
+          <img :src="getCloudUrl('ai_gif5.gif')" />
+          <img :src="getCloudUrl('ai_gif6.gif')" />
+          <img :src="getCloudUrl('ai_gif7.gif')" />
+          <img :src="getCloudUrl('ai_gif8.gif')" />
         </div>
       </div>
     </div>
@@ -108,18 +108,23 @@
   </div>
 </template>
 <script>
-import { defineComponent, onMounted, reactive, ref, onUnmounted } from "vue";
+import { defineComponent, getCurrentInstance, reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import navBox from './navigationBox.vue'
 import useMenuChange from "../hooks/useMenuChange"
 
 export default defineComponent({
-  name: "home",
+  name: "ximalayaai",
   components: {
     navBox,
   },
   setup() {
     useMenuChange()
+    const internalInstance = getCurrentInstance()
+    const $utils = internalInstance.appContext.config.globalProperties.$utils
+    const getCloudUrl = (url) => {
+      return $utils.getCloudUrl(url)
+    }
     const router = useRouter()
     const navList = reactive([
       {title:'项目背景',cur: false,anchor:'ai_title1'},
@@ -158,18 +163,15 @@ export default defineComponent({
     const handleNext = () => {
       router.push({name: 'gameLive'})
     }
-    const getAssetsFile = (url) => {
-        return new URL(`../assets/images/${url}`, import.meta.url).href
-    }
     const slideList = [
-      {img:getAssetsFile('ai_gif1.gif'),title1:'语音合成',title2:'语音合成（Text-to-Speech，TTS）是将文本转换成语音的技术，应用于有声书、有声新闻、有声广告、智能助手等场景。喜马拉雅智能语音实验室自研HiTTS技术，聚焦有声内容，实现了多播多情感的语音合成，同时可预测不同文本的情感极性和节奏，并为不同内容自动匹配适合的说话角色以及合适的风格、音色和情绪。'},
-      {img:getAssetsFile('ai_gif2.gif'),title1:'语音识别',title2:'录音文件识别（Automatic Speech Recognition, ASR）是机器自动将人的声音转化为文字的算法，可将批量音频文件识别为带时间戳、标点的文本数据。应用于语音转写、字幕对轨、语音、音频审核等场景。'},
-      {img:getAssetsFile('ai_gif3.gif'),title1:'有声内容创作',title2:'有声内容创作让你能直观地实时调整语音参数，例如声音发音人、发音人风格、语速、停顿和情感等。你可以定义各种形式的声音。实现更准确、更具表现力以及更个性化的声音输出。'},
-      {img:getAssetsFile('ai_gif4.gif'),title1:'音频信号处理',title2:'智能区分并提取音频中的背景音和人声干音，根据目标声音自动调整配乐音量，将不同音频信号源的音量级别保持不变。'},
-      {img:getAssetsFile('ai_gif5.gif'),title1:'语音分析',title2:'语音评测（Computer Assisted Pronunciation Training，CAPT）指通过智能语音技术，自动对音频流中的朗读发音进行评分、问题定位及纠错。支持字、词、句、篇章等多种类型语音评测，并返回准确度、流畅度、完整度、声韵调型等多维度评分。可用于语音教学、普通话考核、主播培训等场景。'},
-      {img:getAssetsFile('ai_gif6.gif'),title1:'声纹技术',title2:'角色分离（speaker diarization）也叫说话人日志，是指从一个连续的多人说话的语音中切分出不同说话人的片段，并且判断出每个片段是哪个说话人的过程。可以辅助会议、电话数据进行自动转写构建说话人的音频档案；也可以利用说话人分离技术，实现语料库的自动跟踪和标注。'},
-      {img:getAssetsFile('ai_gif7.gif'),title1:'图像与虚拟人',title2:'通过虚拟人为AIGC内容赋能增加订阅与互动助力商业化，输入的图像，自动生成对应的描述性文本'},
-      {img:getAssetsFile('ai_gif8.gif'),title1:'智能硬件',title2:'语音评测（Computer Assisted Pronunciation Training，CAPT）指通过智能语音技术，自动对音频流中的朗读发音进行评分、问题定位及纠错。支持字、词、句、篇章等多种类型语音评测，并返回准确度、流畅度、完整度、声韵调型等多维度评分。可用于语音教学、普通话考核、主播培训等场景。'},
+      {img:getCloudUrl('ai_gif1.gif'),title1:'语音合成',title2:'语音合成（Text-to-Speech，TTS）是将文本转换成语音的技术，应用于有声书、有声新闻、有声广告、智能助手等场景。喜马拉雅智能语音实验室自研HiTTS技术，聚焦有声内容，实现了多播多情感的语音合成，同时可预测不同文本的情感极性和节奏，并为不同内容自动匹配适合的说话角色以及合适的风格、音色和情绪。'},
+      {img:getCloudUrl('ai_gif2.gif'),title1:'语音识别',title2:'录音文件识别（Automatic Speech Recognition, ASR）是机器自动将人的声音转化为文字的算法，可将批量音频文件识别为带时间戳、标点的文本数据。应用于语音转写、字幕对轨、语音、音频审核等场景。'},
+      {img:getCloudUrl('ai_gif3.gif'),title1:'有声内容创作',title2:'有声内容创作让你能直观地实时调整语音参数，例如声音发音人、发音人风格、语速、停顿和情感等。你可以定义各种形式的声音。实现更准确、更具表现力以及更个性化的声音输出。'},
+      {img:getCloudUrl('ai_gif4.gif'),title1:'音频信号处理',title2:'智能区分并提取音频中的背景音和人声干音，根据目标声音自动调整配乐音量，将不同音频信号源的音量级别保持不变。'},
+      {img:getCloudUrl('ai_gif5.gif'),title1:'语音分析',title2:'语音评测（Computer Assisted Pronunciation Training，CAPT）指通过智能语音技术，自动对音频流中的朗读发音进行评分、问题定位及纠错。支持字、词、句、篇章等多种类型语音评测，并返回准确度、流畅度、完整度、声韵调型等多维度评分。可用于语音教学、普通话考核、主播培训等场景。'},
+      {img:getCloudUrl('ai_gif6.gif'),title1:'声纹技术',title2:'角色分离（speaker diarization）也叫说话人日志，是指从一个连续的多人说话的语音中切分出不同说话人的片段，并且判断出每个片段是哪个说话人的过程。可以辅助会议、电话数据进行自动转写构建说话人的音频档案；也可以利用说话人分离技术，实现语料库的自动跟踪和标注。'},
+      {img:getCloudUrl('ai_gif7.gif'),title1:'图像与虚拟人',title2:'通过虚拟人为AIGC内容赋能增加订阅与互动助力商业化，输入的图像，自动生成对应的描述性文本'},
+      {img:getCloudUrl('ai_gif8.gif'),title1:'智能硬件',title2:'语音评测（Computer Assisted Pronunciation Training，CAPT）指通过智能语音技术，自动对音频流中的朗读发音进行评分、问题定位及纠错。支持字、词、句、篇章等多种类型语音评测，并返回准确度、流畅度、完整度、声韵调型等多维度评分。可用于语音教学、普通话考核、主播培训等场景。'},
     ]
     let showSlide = ref(0)
     const slideLoop = setInterval(() => {
@@ -178,9 +180,9 @@ export default defineComponent({
     }, 3000);
     const getSlideIcon = (item) => {
       if(showSlide.value === item - 1) {
-        return getAssetsFile('ai_desgin_gif'+item+'_h.png')
+        return getCloudUrl('ai_desgin_gif'+item+'_h.png')
       }else {
-        return getAssetsFile('ai_desgin_gif'+item+'_g.png')
+        return getCloudUrl('ai_desgin_gif'+item+'_g.png')
       }
     }
     const changSlide = (item) => {
@@ -196,8 +198,8 @@ export default defineComponent({
       changSlide,
       handlePre,
       handleNext,
-      getAssetsFile,
       getSlideIcon,
+      getCloudUrl
     };
   },
 });

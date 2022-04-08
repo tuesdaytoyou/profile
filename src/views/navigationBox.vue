@@ -13,6 +13,7 @@
 </template>
 <script>
 import { defineComponent, toRefs, onMounted, reactive, onUnmounted } from "vue";
+import { useRouter, useRoute } from "vue-router";
 
 export default defineComponent({
   name: "navbox",
@@ -21,6 +22,7 @@ export default defineComponent({
     navName: String,
   },
   setup(props, { emit }) {
+    const route = useRoute()
     const { navList, navName } = toRefs(props)
     const listenScroll = () => {
       document.addEventListener('scroll', navMenu)
@@ -62,6 +64,11 @@ export default defineComponent({
           break
       }
     }
+    onMounted(()=>{
+      if(route.query.nav === 'more'){
+        handleNav('center', 3)
+      }
+    })
     return {
       navList,
       handleNav,

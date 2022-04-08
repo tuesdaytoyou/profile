@@ -9,7 +9,7 @@
       <ul class="card_list">
         <li>
           <div class="card_list_top">
-            <img src="@/assets/images/port_list1.png" />
+            <img :src="getCloudUrl('port_list1.png')" />
             <div @click="jumpTo('ximalayaMusic')">
               <p>工具产品设计</p>
               <p>面向C端用户的对外内容生产工具，打通登陆-生产-发布链路，帮助创作者快速便捷的生产个性化内容，从而繁荣AIGC和UGC生态。</p>
@@ -24,7 +24,7 @@
         </li>
         <li>
           <div class="card_list_top">
-            <img src="@/assets/images/port_list2.png" />
+            <img :src="getCloudUrl('port_list2.png')" />
             <div @click="jumpTo('ximalayaAi')">
               <p>Web网站设计</p>
               <p>对内对外展示喜马拉雅Al算法能力的展示平台。通过交互demo体验算法能力，展示平台能力和企业的服务能力，增加行业内知名度。</p>
@@ -39,7 +39,7 @@
         </li>
         <li>
           <div class="card_list_top">
-            <img src="@/assets/images/port_list3.png" />
+            <img :src="getCloudUrl('port_list3.png')" />
             <div @click="jumpTo('gameLive')">
               <p>C端用户体验设计</p>
               <p>旨在通过设计新的互动模式增强用户的游戏直播互动体验负责用户研究，交互及可用性测试</p>
@@ -54,7 +54,7 @@
         </li>
         <li>
           <div class="card_list_top">
-            <img src="@/assets/images/port_list4.png" />
+            <img :src="getCloudUrl('port_list4.png')" />
             <div @click="jumpTo('amazon')">
               <p>B端体验设计</p>
               <p>亚马逊人工智能研究院NLP算法产品落地项目:语义解析工具，旨在分析长文档，展示处理结果。</p>
@@ -69,7 +69,7 @@
         </li>
         <!-- <li>
           <div class="card_list_top">
-            <img src="@/assets/images/port_list5.png" />
+            <img :src="getCloudUrl('port_list5.png')" />
             <div>
               <p>C端web产品体验设计</p>
               <p>搭建以科研文献阅读社交互动为核心的文献阅读平台。项目唯一设计师，负责整个产品的需求-方案落地，项目已完成部分开发。</p>
@@ -87,7 +87,7 @@
   </div>
 </template>
 <script>
-import { defineComponent, onMounted, reactive } from "vue";
+import { defineComponent, getCurrentInstance } from "vue";
 import { useRouter } from "vue-router";
 
 export default defineComponent({
@@ -97,8 +97,14 @@ export default defineComponent({
     const jumpTo = (name) => {
       router.push({name})
     }
+    const internalInstance = getCurrentInstance()
+    const $utils = internalInstance.appContext.config.globalProperties.$utils
+    const getCloudUrl = (url) => {
+      return $utils.getCloudUrl(url)
+    }
     return {
-      jumpTo
+      jumpTo,
+      getCloudUrl
     };
   },
 });

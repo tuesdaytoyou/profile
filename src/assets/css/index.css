@@ -1204,3 +1204,5 @@ img{border:0;}
     opacity: 0.2;
   }
 }
+.flex_column{display: flex;justify-content: center;align-items: center;flex-direction: column;}
+.video_iframe{background: url(@/assets/images/video_iframe.png) no-repeat;position: absolute;height: 100%;width: 100%;background-size: contain;}

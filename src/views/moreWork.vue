@@ -20,7 +20,7 @@
       <ul class="card_list">
         <li>
           <div class="card_list_top">
-            <img src="@/assets/images/more_list1.png" />
+            <img :src="getCloudUrl('more_list1.png')" />
             <div @click="jumpTo('hok')">
               <p></p>
               <p>需求分析、心智模型简历、用户群体划分、设计心理学分析、问题发掘与建议</p>
@@ -35,7 +35,7 @@
         </li>
         <li>
           <div class="card_list_top">
-            <img src="@/assets/images/more_list2.png" />
+            <img :src="getCloudUrl('more_list2.png')" />
             <div @click="jumpTo('planetarium')">
               <p></p>
               <p>天文物理知识转化为游戏，并用一个科幻离奇的未来故事串联，打造沉浸、趣味的游览体验。</p>
@@ -50,7 +50,7 @@
         </li>
         <li>
           <div class="card_list_top">
-            <img src="@/assets/images/more_list3.png" />
+            <img :src="getCloudUrl('more_list3.png')" />
             <div @click="jumpTo('solarterm')">
               <p></p>
               <p>结合传统二十四节气中关于农耕的运作知识，设定老年人健身常用动作，将二者融入到游戏机制中，激励老人持续健身，同时也可以借助节气知识进行社交等。</p>
@@ -71,7 +71,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box" style="width:380px;height:380px;background:#212122;">
-                <a-image :src="getImgUrl('more_img1.gif')" />
+                <a-image :src="getCloudUrl('more_img1.gif')" />
               </div>
               <div class="mask"></div>
               <p>动效设计</p>
@@ -80,7 +80,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box" style="width:380px;height:380px;background:#212122;">
-                <a-image :src="getImgUrl('more_img2.gif')" />
+                <a-image :src="getCloudUrl('more_img2.gif')" />
               </div>
               <div class="mask" @click="visible = true"></div>
               <p>动效设计</p>
@@ -89,7 +89,7 @@
           <li>
             <div style="position: relative;">
               <div class="img_box" style="width:380px;height:380px;background:#212122;">
-                <a-image :src="getImgUrl('more_img3.gif')" />
+                <a-image :src="getCloudUrl('more_img3.gif')" />
               </div>
               <div class="mask"></div>
               <p>动效设计</p>
@@ -98,9 +98,8 @@
           <li>
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getImgUrl('more_img4.png')" />
+                <a-image :src="getCloudUrl('more_img4.png')" />
               </div>
-              <!-- <img src="../assets/images/more_img4.png" /> -->
               <div class="mask"></div>
               <p>智能产品设计－全息投影香薰仪</p>
             </div>
@@ -108,9 +107,8 @@
           <li>
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getImgUrl('more_img5.png')" />
+                <a-image :src="getCloudUrl('more_img5.png')" />
               </div>
-              <!-- <img src="../assets/images/more_img5.png" /> -->
               <div class="mask"></div>
               <p>图标设计</p>
             </div>
@@ -118,9 +116,8 @@
           <li>
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getImgUrl('more_img6.png')" />
+                <a-image :src="getCloudUrl('more_img6.png')" />
               </div>
-              <!-- <img src="../assets/images/more_img6.png" /> -->
               <div class="mask"></div>
               <p>插画设计－卡面</p>
             </div>
@@ -128,9 +125,8 @@
           <li>
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getImgUrl('more_img7.png')" />
+                <a-image :src="getCloudUrl('more_img7.png')" />
               </div>
-              <!-- <img src="../assets/images/more_img7.png" /> -->
               <div class="mask"></div>
               <p>珠宝设计－海洋的眼泪</p>
             </div>
@@ -138,9 +134,8 @@
           <li>
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getImgUrl('more_img8.png')" />
+                <a-image :src="getCloudUrl('more_img8.png')" />
               </div>
-              <!-- <img src="../assets/images/more_img8.png" /> -->
               <div class="mask"></div>
               <p>海报设计</p>
             </div>
@@ -148,9 +143,8 @@
           <li>
             <div style="position: relative;">
               <div class="img_box" style="margin-top:-250px">
-                <a-image :src="getImgUrl('more_img9.png')" />
+                <a-image :src="getCloudUrl('more_img9.png')" />
               </div>
-              <!-- <img style="margin-top:-250px" src="../assets/images/more_img9.png" /> -->
               <div class="mask"></div>
               <p>品牌设计</p>
             </div>
@@ -158,19 +152,17 @@
           <li>
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getImgUrl('more_img10.png')" />
+                <a-image :src="getCloudUrl('more_img10.png')" />
               </div>
-              <!-- <img src="../assets/images/more_img10.png" /> -->
               <div class="mask"></div>
-              <p>信息可视化研究</p>
+              <p>品牌CV设计</p>
             </div>
           </li>
           <li>
             <div style="position: relative;">
               <div class="img_box" style="width:380px;height:535px;margin-top:-300px">
-                <a-image :src="getImgUrl('more_img11.png')" />
+                <a-image :src="getCloudUrl('more_img11.png')" />
               </div>
-              <!-- <img style="width:380px;height:535px;margin-top:-300px" src="../assets/images/more_img11.png" /> -->
               <div class="mask"></div>
               <p>信息可视化研究</p>
             </div>
@@ -178,9 +170,8 @@
           <li>
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getImgUrl('more_img12.png')" />
+                <a-image :src="getCloudUrl('more_img12.png')" />
               </div>
-              <!-- <img src="../assets/images/more_img12.png" /> -->
               <div class="mask"></div>
               <p>彩铅作品</p>
             </div>
@@ -188,19 +179,17 @@
           <li style="margin-top:-300px">
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getImgUrl('more_img13.png')" />
+                <a-image :src="getCloudUrl('more_img13.png')" />
               </div>
-              <!-- <img src="../assets/images/more_img13.png" /> -->
               <div class="mask"></div>
-              <p>彩铅作品</p>
+              <p>产品设计</p>
             </div>
           </li>
           <li style="margin-top:-300px;margin-left: 480px;">
             <div style="position: relative;">
               <div class="img_box">
-                <a-image :src="getImgUrl('more_img14.png')" />
+                <a-image :src="getCloudUrl('more_img14.png')" />
               </div>
-              <!-- <img src="../assets/images/more_img14.png" /> -->
               <div class="mask"></div>
               <p>彩铅作品</p>
             </div>
@@ -208,11 +197,10 @@
           <li style="clear:both;">
             <div style="position: relative;">
             <div class="img_box">
-                <a-image :src="getImgUrl('more_img15.png')" />
+                <a-image :src="getCloudUrl('more_img15.png')" />
               </div>
-              <!-- <img src="../assets/images/more_img15.png" /> -->
               <div class="mask"></div>
-              <p>彩铅作品</p>
+              <p>插画</p>
             </div>
           </li>
         </ul>
@@ -232,18 +220,18 @@ export default defineComponent({
     const $utils = internalInstance.appContext.config.globalProperties.$utils
     const jumpTo = (name) => {
       if(name === 'hok') {
-        const url = $utils.getImgUrl('HOK.pdf')
+        const url = $utils.getCloudUrl('HOK.pdf')
         window.open(url)
         return
       }
       router.push({name})
     }
-    const getImgUrl = (url) => {
-      return $utils.getImgUrl(url)
+    const getCloudUrl = (url) => {
+      return $utils.getCloudUrl(url)
     }
     return {
       jumpTo,
-      getImgUrl,
+      getCloudUrl,
     };
   },
 });
