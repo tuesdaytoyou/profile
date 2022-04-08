@@ -1,5 +1,5 @@
 <template>
-  <div class="nav_box">
+  <div class="nav_box" v-show="showNav">
     <div class="nav_contain">
       <p class="nav_top" @click="handleNav('top')"></p>
       <ul class="nav_list">
@@ -12,7 +12,7 @@
   </div>
 </template>
 <script>
-import { defineComponent, toRefs, onMounted, reactive, onUnmounted } from "vue";
+import { defineComponent, toRefs, onMounted, ref, onUnmounted, getCurrentInstance } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
 export default defineComponent({
@@ -22,13 +22,19 @@ export default defineComponent({
     navName: String,
   },
   setup(props, { emit }) {
+    const internalInstance = getCurrentInstance()
+    const $utils = internalInstance.appContext.config.globalProperties.$utils
+    const throttle = (fn, delay) => {
+      return $utils.throttle(fn, delay)
+    }
     const route = useRoute()
     const { navList, navName } = toRefs(props)
+    let showNav = ref(false)
     const listenScroll = () => {
-      document.addEventListener('scroll', navMenu)
+      document.addEventListener('scroll', throttle(navMenu, 100))
     }
     const unlistenScroll = () => {
-      document.removeEventListener('scroll', navMenu)
+      document.removeEventListener('scroll', throttle(navMenu, 100))
     }
     const navMenu = () => {
       const imgList = document.querySelectorAll('.'+navName.value)
@@ -44,6 +50,14 @@ export default defineComponent({
           }
         }
       })
+
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      let screenHeight = (document.documentElement.clientWidth || document.body.clientWidth) - 300
+      if(scrollTop > screenHeight){
+        showNav.value = true
+      }else{
+        showNav.value = false
+      }
     }
     onMounted(listenScroll)
     onUnmounted(unlistenScroll)
@@ -71,6 +85,7 @@ export default defineComponent({
     })
     return {
       navList,
+      showNav,
       handleNav,
     };
   },

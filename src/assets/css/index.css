@@ -305,6 +305,17 @@ img{border:0;}
 }
 .music_page1 {width:1920px;height: 1079px;background: url(@/assets/images/music_page1_bg.png) no-repeat;position: relative;margin: auto;}
 .music_page1_left{position: absolute;top: 325px;left: 118px;}
+.music_page1_left{animation:music_page1_left 2s ease;}
+@keyframes music_page1_left{
+  from {
+    opacity: 0;
+    left: -1000px
+  }
+  to {
+    opacity: 1;
+    left: 118px;
+  }
+}
 .music_page1_left p{margin: 37px 0;}
 .music_page1_left p:nth-child(1) {
   font-family: 'ABeeZee';
@@ -416,6 +427,17 @@ img{border:0;}
 .ai_desgin .ai_card div:hover img:last-child{display: block;}
 .ai_desgin .ai_card div img:last-child {position: absolute;right: 19px;top: 53px;display: none;}
 .ai_page1_left{position: absolute;top: 325px;left: 118px;}
+.ai_page1_left{animation:ai_page1_left 2s ease;}
+@keyframes ai_page1_left{
+  from {
+    opacity: 0;
+    left: -1000px
+  }
+  to {
+    opacity: 1;
+    left: 118px;
+  }
+}
 .ai_page1_left p{margin: 37px 0;}
 .ai_page1_left p:nth-child(1) {
   font-family: 'ABeeZee';
@@ -657,8 +679,41 @@ img{border:0;}
 .game_select .video.cur{background-color: #7152E1;}
 .game_page1 {width:1920px;height: 1079px;background: url(@/assets/images/game_page1_bg.png) no-repeat;position: relative;margin: auto;}
 .game_page1_left{position: absolute;top: 400px;left: 152px;}
+.game_page1_left{animation:game_page1_left 2s ease;}
+@keyframes game_page1_left{
+  from {
+    opacity: 0;
+    top: -1000px
+  }
+  to {
+    opacity: 1;
+    top: 400px;
+  }
+}
 .game_page1_middle{position: absolute;top: 405px;left: 535px;}
+.game_page1_middle{animation:game_page1_middle 2s ease;}
+@keyframes game_page1_middle{
+  from {
+    opacity: 0;
+    top: 2000px;
+  }
+  to {
+    opacity: 1;
+    top: 405px;
+  }
+}
 .game_page1_right{position: absolute;top: -10px;right: 0;}
+.game_page1_right{animation:game_page1_right 2s ease;}
+@keyframes game_page1_right{
+  from {
+    opacity: 0;
+    top: -1000px
+  }
+  to {
+    opacity: 1;
+    top: -10px;
+  }
+}
 .game_page1_middle p{margin: 37px 0;}
 .game_page1_middle p:nth-child(1) {
   font-family: 'ABeeZee';
@@ -1014,8 +1069,57 @@ img{border:0;}
 .page2_skill1 ul li div:nth-child(3){
   margin-top: -6px;
   height: 6px;
+  width: 0;
   background: #316CE2;
   border-radius: 35.6464px;
+}
+.page2_skill1 .animationshow .skill1_bar{width:611px;}
+.page2_skill1 .animationshow .skill1_bar{animation:skill1_bar 2s ease;}
+@keyframes skill1_bar{
+  from {
+    opacity: 0;
+    width: 0
+  }
+  to {
+    opacity: 1;
+    width:611px;
+  }
+}
+.page2_skill1 .animationshow .skill2_bar{width:517px;}
+.page2_skill1 .animationshow .skill2_bar{animation:skill2_bar 2s ease;}
+@keyframes skill2_bar{
+  from {
+    opacity: 0;
+    width: 0
+  }
+  to {
+    opacity: 1;
+    width:517px;
+  }
+}
+.page2_skill1 .animationshow .skill3_bar{width:517px;}
+.page2_skill1 .animationshow .skill3_bar{animation:skill3_bar 2s ease;}
+@keyframes skill3_bar{
+  from {
+    opacity: 0;
+    width: 0
+  }
+  to {
+    opacity: 1;
+    width:517px;
+  }
+}
+.page2_skill1 .animationshow .skill4_bar{width:432px;}
+.page2_skill1 .animationshow .skill4_bar{animation:skill4_bar 2s ease;}
+@keyframes skill4_bar{
+  from {
+    opacity: 0;
+    width: 0
+  }
+  to {
+    opacity: 1;
+    width:432px;
+  }
 }
 .page2_skill2{
   width: 140px;
@@ -1135,14 +1239,22 @@ img{border:0;}
   align-items: center;
   height: 100vh;
 }
+.home_contain .hello p{
+  margin-top: 100px;
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 160%;
+  color: #FFFFFF;
+}
 .home_info {
   margin-left: 400px;
 }
+.profile_box{display: flex;justify-content: flex-end;align-items: center;margin-right: 15px;}
 .profile {
   display: inline-block;
-  width: 334px;
   height: 38px;
-  margin-left: 170px;
   font-family: "PingFang SC";
   font-style: normal;
   font-weight: 700;
@@ -1150,10 +1262,12 @@ img{border:0;}
   line-height: 160%;
   color: #ffffff;
 }
+.profile span{color:#FB2CFF}
 .profile_line {
+  margin-left:10px;
   display: inline-block;
   width: 5px;
-  height: 30px;
+  height: 50px;
   background: #ffffff;
 }
 .my_name {

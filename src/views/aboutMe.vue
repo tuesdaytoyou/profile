@@ -63,26 +63,26 @@
     </div>
     <div class="page2_skills">
       <div class="page2_skill1">
-        <ul>
+        <ul :class="{animationshow:animationBoxShow}">
           <li>
             <div style="position:relative"><span>UX&UI设计</span><span>Figma. Sketch. Axure</span><span>90％</span></div>
             <div></div>
-            <div style="width:611px;"></div>
+            <div class="skill1_bar"></div>
           </li>
           <li>
             <div style="position:relative"><span>视觉动画</span><span>Ps. AI. PR. AE</span><span>70％</span></div>
             <div></div>
-            <div style="width: 517px;"></div>
+            <div class="skill2_bar"></div>
           </li>
           <li>
             <div style="position:relative"><span>产品三维建模</span><span>C4D. Blender</span><span>60％</span></div>
             <div></div>
-            <div style="width: 517px;"></div>
+            <div class="skill3_bar"></div>
           </li>
           <li>
             <div style="position:relative"><span>AR&游戏&AI</span><span>Unity3D. Python.</span><span>60％</span></div>
             <div></div>
-            <div style="width: 432px;"></div>
+            <div class="skill4_bar"></div>
           </li>
         </ul>
       </div>
@@ -141,3 +141,37 @@
     </div>
   </div>
 </template>
+<script>
+import { defineComponent, getCurrentInstance, ref, onMounted } from "vue";
+
+
+export default defineComponent({
+  name: "aboutme",
+  setup() {
+    const internalInstance = getCurrentInstance()
+    const $utils = internalInstance.appContext.config.globalProperties.$utils
+    const throttle = (fn, delay) => {
+      return $utils.throttle(fn, delay)
+    }
+    const listenScroll = () => {
+      document.addEventListener('scroll', throttle(animation, 100))
+    }
+    const unlistenScroll = () => {
+      document.removeEventListener('scroll', throttle(animation, 100))
+    }
+    const animationBoxShow = ref(false)
+    const animation = () => {
+      const screenHeight = (document.documentElement.clientWidth || document.body.clientWidth)
+      const animationBox = document.querySelector('.page2_skills')
+      if(animationBox.getBoundingClientRect().top <= screenHeight*2/3){
+        animationBoxShow.value = true
+        unlistenScroll()
+      }
+    }
+    onMounted(listenScroll)
+    return {
+      animationBoxShow,
+    };
+  },
+});
+</script>

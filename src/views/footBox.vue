@@ -16,21 +16,12 @@
     </ul>
   </div>
 </template>
-<script>
-import { defineComponent, getCurrentInstance } from "vue";
+<script setup>
+  import { getCurrentInstance } from "vue";
+  const internalInstance = getCurrentInstance()
+  const $utils = internalInstance.appContext.config.globalProperties.$utils
+  const getCloudUrl = (url) => {
+    return $utils.getCloudUrl(url)
+  }
 
-
-export default defineComponent({
-  name: "footbox",
-  setup() {
-    const internalInstance = getCurrentInstance()
-    const $utils = internalInstance.appContext.config.globalProperties.$utils
-    const getCloudUrl = (url) => {
-      return $utils.getCloudUrl(url)
-    }
-    return {
-        getCloudUrl
-    };
-  },
-});
 </script>
