@@ -27,19 +27,16 @@
   </div>
 </template>
 <script setup>
-  import { getCurrentInstance, onMounted } from "vue";
+  import { getCurrentInstance, onMounted, onUnmounted } from "vue";
   const internalInstance = getCurrentInstance()
   const $utils = internalInstance.appContext.config.globalProperties.$utils
   const getCloudUrl = (url) => {
     return $utils.getCloudUrl(url)
   }
-  onMounted(() => {
-    setTimeout(() => {
-      oneByOne()
-    }, 2000);
-  })
+  let timer = null
   const oneByOne = () => {
     const element = document.querySelector('.profile')
+    if(!element) return
     const titleList = [
       'A User Experience Designer',
       'A UI Designer ',
@@ -49,7 +46,7 @@
     let titleIndex = 0
     let count = 0
     element.innerHTML = ''
-    setInterval(() => {
+    timer = setInterval(() => {
       let char = titleList[titleIndex].charAt(count)
       if(char){
         element.innerHTML += char
@@ -64,4 +61,12 @@
       }
     }, 250)
   }
+  onMounted(() => {
+    setTimeout(() => {
+      oneByOne()
+    }, 2000);
+  })
+  onUnmounted(() => {
+    clearInterval(timer)
+  })
 </script>

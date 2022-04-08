@@ -142,7 +142,7 @@
   </div>
 </template>
 <script>
-import { defineComponent, getCurrentInstance, ref, onMounted } from "vue";
+import { defineComponent, getCurrentInstance, ref, onMounted, onUnmounted } from "vue";
 
 
 export default defineComponent({
@@ -154,10 +154,10 @@ export default defineComponent({
       return $utils.throttle(fn, delay)
     }
     const listenScroll = () => {
-      document.addEventListener('scroll', throttle(animation, 100))
+      document.addEventListener('scroll', animation)
     }
     const unlistenScroll = () => {
-      document.removeEventListener('scroll', throttle(animation, 100))
+      document.removeEventListener('scroll', animation)
     }
     const animationBoxShow = ref(false)
     const animation = () => {
@@ -169,6 +169,7 @@ export default defineComponent({
       }
     }
     onMounted(listenScroll)
+    onUnmounted(unlistenScroll)
     return {
       animationBoxShow,
     };
