@@ -52,7 +52,8 @@ export default defineComponent({
       })
 
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      let screenHeight = (document.documentElement.clientWidth || document.body.clientWidth) - 500
+      // let screenHeight = (document.documentElement.clientWidth || document.body.clientWidth) - 500
+      let screenHeight = 900
       if(scrollTop > screenHeight){
         showNav.value = true
       }else{
