@@ -45,6 +45,14 @@ export default defineComponent({
       //   url: 'https://ludicrous-harmony-bcc.notion.site/MR-Design-System-e9861a5358f4461d9d53e1d175a00525'
       // },
       {
+        title: "如何组织设计Workshop助力设计规范研究",
+        description:
+          "实习期间，通过组织两场面向设计、业务的workshop，了解平台新手引导的最佳案例，探索平台多工具合作潜力。",
+        keys: ["字节实习", "workshop"],
+        img: 'blog_img4.png',
+        url: 'https://ludicrous-harmony-bcc.notion.site/Workshop-c086347e638e46b282abb6de593244ff'
+      },
+      {
         title: "用户体验走查方法论总结与思考",
         description:
           "在喜马拉雅实习期间，通过体验指标，进行体验走查项目，发掘体验问题，为产品体验改进提供方向。",

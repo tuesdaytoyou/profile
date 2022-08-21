@@ -15,6 +15,7 @@ const store = createStore({
         gameLive: 'black',
         planetarium: 'black',
         solarterm: 'black',
+        audioLibrary: 'white',
       }
     }
   },

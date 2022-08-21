@@ -10,4 +10,15 @@
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>
+  <script type="text/javascript">
+    document.oncontextmenu = function(){
+      return false;
+    }
+    document.onselectstart = function(){
+      return false;
+    }
+    document.oncopy = function(){
+      return false;
+    }
+  </script>
 </html>

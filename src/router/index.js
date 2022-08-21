@@ -37,6 +37,11 @@ const routes = [
     name: 'solarterm',
     component: () => import('@/views/solarterm.vue')
   },
+  {
+    path: '/audioLibrary',
+    name: 'audioLibrary',
+    component: () => import('@/views/audioLibrary.vue')
+  },
 ]
 
 const router = createRouter({

@@ -9,6 +9,10 @@
       <ul>
         <li v-for="(item, index) in menuList">
           <p :class="{cur: selectMenu === item.name}" @click="handleMenu(item, index)">{{item.title}}</p>
+          <template v-if="item.type == 'link'">
+            <img v-if="menuColor == 'fixwhite' || menuColor == 'black' || menuColor == 'blue'" src="@/assets/images/openlink_black.png" />
+            <img v-else src="@/assets/images/openlink.png" />
+          </template>
         </li>
       </ul>
     </div>
@@ -33,15 +37,22 @@ export default defineComponent({
     }
     const selectMenu = computed(() => {return store.state.selectMenu})
     const handleMenu = (item, index) => {
-      const name = item.name
-      router.push({name})
-      menuList.forEach((el)=>{el.cur=false})
+      if(item.type == 'link'){
+        window.open(item.url)
+      }else {
+        const name = item.name
+        router.push({name})
+        menuList.forEach((el)=>{el.cur=false})
+      }
+
     }
     const menuColor = computed(() => {
       return store.state.menuColor
     })
     const menuList = reactive([
       {title:'首页', name: 'home'},
+      {title:"Beginner's Guide", name: '',type: 'link',url: 'https://ludicrous-harmony-bcc.notion.site/80b92b7a3d924fd599315a53339a261c'},
+      {title:"Audio Library", name: 'audioLibrary'},
       {title:'喜韵音坊', name: 'ximalayaMusic'},
       {title:'喜马云网站', name: 'ximalayaAi'},
       {title:'游戏直播互动体验', name: 'gameLive'},

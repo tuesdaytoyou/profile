@@ -116,6 +116,12 @@
     <div class="page2_experience">
       <div class="page2_experience_contain">
         <div class="page2_experience_box">
+          <img src="@/assets/images/img_byte.png" />
+          <span>字节跳动（国际）. 2022</span>
+          <span>UE（交互&UI）</span>
+          <span style="display: inline-block;position: absolute;width:630px">非中广告创意业务，支持10+需求上线；负责0-1搭建国际化广告-商业化音乐功能模块三端（PC、Ipad、Mobile）设计。3个设计自驱研究：拓展完善平台设计组件；组织Workshop，搭建工具类新手引导规范，产出设计指导手册。</span>
+        </div>
+        <div class="page2_experience_box">
           <img src="@/assets/images/img_xmly.png" />
           <span>喜马拉雅. 2021-2022</span>
           <span>交互&UI设计师</span>
