@@ -9,21 +9,6 @@
       <ul class="card_list">
         <li>
           <div class="card_list_top">
-            <img :src="getCloudUrl('port_list6.png')" />
-            <div @click="jumpTo('zjTools')">
-              <p>工具产品新手增长方案</p>
-              <p>为快速提高产品的活跃用户、核心用户的增长，通过用户分层，在不同用户的不同场景下探索针对性新手引导解决方案。</p>
-            </div>
-          </div>
-          <div class="card_list_bottom">
-            <p>创意工具新手引导</p>
-            <p><span>字节跳动海外广告创意</span><span>2022</span></p>
-            <p><span>设计规范</span><span>交互策略</span></p>
-            <p @click="jumpTo('zjTools')"></p>
-          </div>
-        </li>
-        <li>
-          <div class="card_list_top">
             <img :src="getCloudUrl('port_list7.png')" />
             <div @click="jumpTo('zjMusic')">
               <p>0-1搭建三端商用音乐库</p>
@@ -35,6 +20,21 @@
             <p><span>字节跳动海外创意中心</span><span>2022</span></p>
             <p><span>交互UI</span><span>设计组件</span><span>三端规范</span></p>
             <p @click="jumpTo('zjMusic')"></p>
+          </div>
+        </li>
+        <li>
+          <div class="card_list_top">
+            <img :src="getCloudUrl('port_list6.png')" />
+            <div @click="jumpTo('zjTools')">
+              <p>工具产品新手增长方案</p>
+              <p>为快速提高产品的活跃用户、核心用户的增长，通过用户分层，在不同用户的不同场景下探索针对性新手引导解决方案。</p>
+            </div>
+          </div>
+          <div class="card_list_bottom">
+            <p>创意工具新手引导</p>
+            <p><span>字节跳动海外广告创意</span><span>2022</span></p>
+            <p><span>设计规范</span><span>交互策略</span></p>
+            <p @click="jumpTo('zjTools')"></p>
           </div>
         </li>
         <li>
