@@ -10,7 +10,7 @@
         <li>
           <div class="card_list_top">
             <img :src="getCloudUrl('port_list7.png')" />
-            <div @click="jumpTo('zjMusic')">
+            <div @click="jumpTo('audioLibrary')">
               <p>0-1搭建三端商用音乐库</p>
               <p>0-1搭建三端创意广告商用音乐库，满足用户高效找歌需求，拓展平台设计规范。</p>
             </div>
@@ -19,7 +19,7 @@
             <p>Audio Library音乐库</p>
             <p><span>字节跳动海外创意中心</span><span>2022</span></p>
             <p><span>交互UI</span><span>设计组件</span><span>三端规范</span></p>
-            <p @click="jumpTo('zjMusic')"></p>
+            <p @click="jumpTo('audioLibrary')"></p>
           </div>
         </li>
         <li>
@@ -127,8 +127,6 @@ export default defineComponent({
     const jumpTo = (name) => {
       if(name == "zjTools"){
         window.open("https://ludicrous-harmony-bcc.notion.site/80b92b7a3d924fd599315a53339a261c")
-      }else if(name == "zjMusic"){
-        window.open("")
       }else{
         router.push({name})
       }
