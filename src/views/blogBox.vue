@@ -58,7 +58,7 @@ export default defineComponent({
           "在喜马拉雅实习期间，通过体验指标，进行体验走查项目，发掘体验问题，为产品体验改进提供方向。",
         keys: ["企业实习", "体验走查"],
         img: 'blog_img2.png',
-        url: 'https://ludicrous-harmony-bcc.notion.site/80b92b7a3d924fd599315a53339a261c'
+        url: 'https://ludicrous-harmony-bcc.notion.site/677fd60d273a46b5812d3f3c23072405'
       },
       // {
       //   title: "企业C端产品交互设计规范制定",
