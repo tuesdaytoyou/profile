@@ -1,6 +1,6 @@
 <template>
   <div class="audio_box flex_column">
-    <div class="flex_column" style="position:absolute;top:5600px;background-color:black;width:100%;height:100px;">
+    <div class="flex_column" style="position:absolute;top:5570px;background-color:black;width:100%;height:100px;">
       <ul class="audio_contain">
         <li @click="handleAudioList(audio, index)" v-for="(audio, index) in audioList" :key="audio.id"
           class="audio_list flex_column" :class="{ 'audio_cur': audio.cur }"><span>{{ audio.name }}</span></li>
@@ -15,7 +15,7 @@
       <img v-show="curIndex == 4" :src="getCloudUrl('audio_list4.png')" />
     </div>
     <div class="audio_imgs flex_column">
-      <img v-for="index in 2" :src="getCloudUrl('audio_img' + index + '.png')" alt="" />
+      <img style="width:1920px" v-for="index in 2" :src="getCloudUrl('audio_img' + index + '.png')" alt="" />
     </div>
   </div>
 </template>
