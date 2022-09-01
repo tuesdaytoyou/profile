@@ -53,9 +53,9 @@ export default defineComponent({
         url: 'https://ludicrous-harmony-bcc.notion.site/Workshop-c086347e638e46b282abb6de593244ff'
       },
       {
-        title: "MR Design System",
+        title: "MR Design System (WIP个人兴趣，持续研究)",
         description:
-          "随着元宇宙到来，MR混合现实的设计系统存在什么样的特点？通过研究世界先进企业的探索，并进行总结。",
+          "随着元宇宙到来，MR混合现实的设计系统存在什么样的特点？通过研究世界先进企业的探索，并进行总结，并尝试提出假设和验证。",
         keys: ["设计系统", "VR、AR、MR"],
         img: 'blog_img1.png',
         url: 'https://ludicrous-harmony-bcc.notion.site/MR-Design-System-e9861a5358f4461d9d53e1d175a00525'
