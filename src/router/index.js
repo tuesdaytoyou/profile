@@ -42,6 +42,11 @@ const routes = [
     name: 'audioLibrary',
     component: () => import('@/views/audioLibrary.vue')
   },
+  {
+    path: '/beginnerGuide',
+    name: 'beginnerGuide',
+    component: () => import('@/views/beginnerGuide.vue')
+  },
 ]
 
 const router = createRouter({

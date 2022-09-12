@@ -25,7 +25,7 @@
         <li>
           <div class="card_list_top">
             <img :src="getCloudUrl('port_list6.png')" />
-            <div @click="jumpTo('zjTools')">
+            <div @click="jumpTo('beginnerGuide')">
               <p>工具产品新手增长方案</p>
               <p>为快速提高产品的活跃用户、核心用户的增长，通过用户分层，在不同用户的不同场景下探索针对性新手引导解决方案。</p>
             </div>
@@ -34,7 +34,7 @@
             <p>创意工具新手引导</p>
             <p><span>字节跳动海外广告创意</span><span>2022</span></p>
             <p><span>设计规范</span><span>交互策略</span></p>
-            <p @click="jumpTo('zjTools')"></p>
+            <p @click="jumpTo('beginnerGuide')"></p>
           </div>
         </li>
         <li>
@@ -125,11 +125,7 @@ export default defineComponent({
   setup() {
     const router = useRouter()
     const jumpTo = (name) => {
-      if(name == "zjTools"){
-        window.open("https://ludicrous-harmony-bcc.notion.site/80b92b7a3d924fd599315a53339a261c")
-      }else{
-        router.push({name})
-      }
+      router.push({name})
     }
     const internalInstance = getCurrentInstance()
     const $utils = internalInstance.appContext.config.globalProperties.$utils

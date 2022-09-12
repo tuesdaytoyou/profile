@@ -52,7 +52,8 @@ export default defineComponent({
     const menuList = reactive([
       {title:'首页', name: 'home'},
       {title:"Audio Library", name: 'audioLibrary'},
-      {title:"Beginner's Guide", name: '',type: 'link',url: 'https://ludicrous-harmony-bcc.notion.site/80b92b7a3d924fd599315a53339a261c'},
+      // {title:"Beginner's Guide", name: '',type: 'link',url: 'https://ludicrous-harmony-bcc.notion.site/80b92b7a3d924fd599315a53339a261c'},
+      {title:"Beginner's Guide", name: 'beginnerGuide'},
       {title:'喜韵音坊', name: 'ximalayaMusic'},
       {title:'喜马云网站', name: 'ximalayaAi'},
       {title:'游戏直播互动体验', name: 'gameLive'},

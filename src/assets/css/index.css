@@ -348,14 +348,14 @@ img{border:0;}
   left: 185px;
   background: #DB3434;
 }
-.music_page1_left p:nth-child(5) {
+/* .music_page1_left p:nth-child(5) {
   font-family: 'ABeeZee';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 160%;
   color: rgba(0, 0, 0, 0.9);
-}
+} */
 .music_page1_right{position: absolute;left: 654px;}
 
 .ai_img_list {display: flex;justify-content: center;align-items: center;}
