@@ -48,11 +48,13 @@
 <script>
 import { defineComponent, getCurrentInstance, reactive, ref, onMounted } from "vue";
 import useMenuChange from "../hooks/useMenuChange"
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "guide",
   setup() {
     useMenuChange()
+    const router = useRouter()
     const internalInstance = getCurrentInstance()
     const $utils = internalInstance.appContext.config.globalProperties.$utils
     const getCloudUrl = (url) => {

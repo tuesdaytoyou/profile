@@ -45,6 +45,14 @@ export default defineComponent({
         url: 'https://ludicrous-harmony-bcc.notion.site/677fd60d273a46b5812d3f3c23072405'
       },
       {
+        title: "工具类产品新手引导设计规范研究",
+        description:
+          "为快速提高产品的活跃用户、核心用户的增长，通过用户分层，在不同用户的不同场景下探索针对性新手引导解决方案。",
+        keys: ["字节实习", "设计自驱"],
+        img: 'gblog_img1.png',
+        url: 'https://www.notion.so/80b92b7a3d924fd599315a53339a261c'
+      },
+      {
         title: "如何组织设计Workshop助力设计规范研究",
         description:
           "实习期间，通过组织两场面向设计、业务的workshop，了解平台新手引导的最佳案例，探索平台多工具合作潜力。",

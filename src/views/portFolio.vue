@@ -1,11 +1,11 @@
 <template>
   <div id="home_title2" class="port_box home_title">
-    <div class="home_title_head">
+    <div class="home_title_head" style="padding-top:50px;">
       <div>Portfolio</div>
       <div>Portfolio</div>
       <div></div>
     </div>
-    <div class="card_list_box">
+    <div class="card_list_box" style="margin-top:50px">
       <ul class="card_list">
         <li>
           <div class="card_list_top">

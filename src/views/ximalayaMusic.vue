@@ -13,7 +13,7 @@
           <li><em></em>可优化方向：新手引导策略</li>
         </ul>
       </div>
-      <div class="music_page1_right">
+      <div class="music_page1_right" style="margin-top: 100px;">
         <img :src="getCloudUrl('music_page1_mac.png')" />
       </div>
     </div>

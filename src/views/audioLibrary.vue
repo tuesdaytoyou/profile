@@ -47,10 +47,12 @@
 <script>
 import { defineComponent, getCurrentInstance, reactive, ref, onMounted } from "vue";
 import useMenuChange from "../hooks/useMenuChange"
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "audio",
   setup() {
+    const router = useRouter()
     useMenuChange()
     const internalInstance = getCurrentInstance()
     const $utils = internalInstance.appContext.config.globalProperties.$utils
