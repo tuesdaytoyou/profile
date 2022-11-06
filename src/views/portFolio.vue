@@ -54,6 +54,21 @@
         </li>
         <li>
           <div class="card_list_top">
+            <img :src="getCloudUrl('port_list8.png')" />
+            <div @click="jumpTo('runToEngland')">
+              <p>赴英留学服务体验设计</p>
+              <p>电梯宣言、访谈执行和结果分析、问卷设计与SPSS定量分析、KANO需求分析、用户画像、POV和HMW分析、SWOT商业分析、利益相关者、未来场景地图等，输出方案。</p>
+            </div>
+          </div>
+          <div class="card_list_bottom">
+            <p>海外金融用户研究-赴英留学服务</p>
+            <p><span>支付宝校企合作</span><span>2021</span></p>
+            <p><span>用户研究</span><span>商业洞察</span><span>UX</span></p>
+            <p @click="jumpTo('runToEngland')"></p>
+          </div>
+        </li>
+        <li>
+          <div class="card_list_top">
             <img :src="getCloudUrl('port_list2.png')" />
             <div @click="jumpTo('ximalayaAi')">
               <p>Web网站设计</p>
@@ -125,6 +140,10 @@ export default defineComponent({
   setup() {
     const router = useRouter()
     const jumpTo = (name) => {
+      if(name == 'runToEngland'){
+        window.open('https://docs-1310971385.cos.ap-shanghai.myqcloud.com/liluyun_portfolio/runToEngland.pdf')
+        return
+      }
       router.push({name})
     }
     const internalInstance = getCurrentInstance()
@@ -145,7 +164,7 @@ export default defineComponent({
   width: 98%;
   margin: auto;
   margin-top: 35px;
-  height: 1349px;
+  height: 1850px;
   background: rgba(0, 71, 209, 1);
   filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.1));
 }
